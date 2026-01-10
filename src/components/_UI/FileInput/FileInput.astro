@@ -1,0 +1,55 @@
+---
+import { Sprite } from "astro-icon";
+
+interface Props extends astroHTML.JSX.InputHTMLAttributes {
+  className?: string;
+  desc?: string;
+  inputProps?: astroHTML.JSX.InputHTMLAttributes;
+}
+
+const {
+  className,
+  desc = "Description",
+  inputProps = {},
+  ...rest
+} = Astro.props;
+---
+
+<div class="text-btn file-input" class:list={[className]} data-file {...rest}>
+  <div class="file-input__container">
+    <label class="file-input__btn">
+      <input type="file" hidden data-input {...inputProps} />
+      <Sprite name="plus-2" />
+      <slot> Добавить резюме</slot>
+    </label>
+
+    <template data-template>
+      <div class="file-input-doc">
+        <div class="file-input-doc__info">
+          <span class="file-input-doc__name" data-name></span>
+          <span class="file-input-doc__type" data-type></span>
+        </div>
+        <button type="button" class="file-input-doc__btn" data-btn>
+          <Sprite name="close" />
+        </button>
+      </div>
+    </template>
+
+    <div class="file-input__list" data-list>
+      <div class="file-input-doc">
+        <div class="file-input-doc__info">
+          <span class="file-input-doc__name" data-name
+            >Название документа всегда в 1 строчку asdasd asd asd asasd asd a
+            Название документа всегда в 1 строчку asdasd asd asd asasd asd a</span
+          >
+          <span class="file-input-doc__type" data-type>pdf</span>
+        </div>
+        <button type="button" class="file-input-doc__btn" data-btn>
+          <Sprite name="close" />
+        </button>
+      </div>
+    </div>
+
+    <span class="text-service file-input__desc" set:html={desc} />
+  </div>
+</div>

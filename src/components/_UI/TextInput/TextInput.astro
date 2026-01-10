@@ -1,0 +1,35 @@
+---
+interface Props extends astroHTML.JSX.InputHTMLAttributes {
+  label?: string;
+  className?: string;
+  textarea?: boolean;
+  color?: null;
+}
+
+const { label, className, textarea, color, ...rest } = Astro.props;
+---
+
+<label
+  class="text-input"
+  class:list={[
+    { ["text-input_" + color]: color },
+    { "text-input_textarea": textarea },
+    className,
+  ]}
+>
+  {label && <span class="text-input__label">{label}</span>}
+  <div class="text-input__container">
+    <slot name="icon" />
+    {
+      textarea ? (
+        <textarea class:list={["text-input__field", rest.class]} {...rest} />
+      ) : (
+        <input
+          type={rest.type ? rest.type : "text"}
+          class="text-input__field"
+          {...rest}
+        />
+      )
+    }
+  </div>
+</label>

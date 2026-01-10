@@ -1,0 +1,141 @@
+// *,
+// *::before,
+// *::after {
+//   outline: 1px solid red;
+// }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $f-manrope;
+  font-size: 2rem;
+  line-height: 1.35;
+  font-weight: 500;
+  color: $G1;
+  min-height: 100vh;
+  background-color: $backgroud;
+  background:
+    linear-gradient(180deg, #B6D0FF 0%, transparent 43.2rem),
+    linear-gradient(0deg, #E1ECFF 0%, #E1ECFF 60rem, transparent 140rem),
+    linear-gradient(0deg, $backgroud, $backgroud);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 200rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+a,
+input,
+button,
+select,
+textarea {
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+svg {
+  flex: none;
+  width: 100%;
+  height: 100%;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+i {
+  font-style: italic;
+}
+
+
+h1 {
+  font-size: 3.2rem;
+
+  @include breakpoint($xs-bp) {
+    font-size: 2.8rem;
+  }
+}
+
+h2 {
+  font-size: 3rem;
+
+  @include breakpoint($xs-bp) {
+    font-size: 2.4rem;
+  }
+}
+
+h3 {
+  font-size: 2.8rem;
+
+  @include breakpoint($xs-bp) {
+    font-size: 2.2rem;
+  }
+}
+
+h4 {
+  font-size: 2.4rem;
+
+  @include breakpoint($xs-bp) {
+    font-size: 2rem;
+  }
+}
+
+h5 {
+  font-size: 2.2rem;
+
+  @include breakpoint($xs-bp) {
+    font-size: 1.8rem;
+  }
+}
+
+h6 {
+  font-size: 2rem;
+
+  @include breakpoint($xs-bp) {
+    font-size: 1.6rem;
+  }
+}
+
+.page {
+  flex: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 164rem;
+  margin: 0 auto;
+  padding: 0rem 2rem;
+}
+
+.lazy:not(.loaded) {
+  filter: blur(0.4rem);
+}
+
+// SWIPER -->
+.swiper {
+  width: 100%;
+}
+
+// <--

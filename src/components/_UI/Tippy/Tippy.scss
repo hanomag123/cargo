@@ -1,0 +1,73 @@
+// [data-tippy-root] {
+//   animation: tippy-show-animation .5s alternate;
+// }
+
+.tippy-box {
+  background-color: transparent;
+
+  &[data-state='visible'] {
+    .tippy-content {
+      translate: 0 0;
+    }
+  }
+}
+
+.tippy-content {
+  padding: 0;
+  translate: 0 2rem;
+}
+
+@keyframes tippy-show-animation {
+  from {
+    translate: 0 2rem;
+  }
+}
+
+.tippy {
+  display: inline-block;
+  transition: .5s;
+
+  &__icon {
+    flex: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $grey;
+    color: $white;
+    border-radius: 50%;
+
+    @include breakpoint($xs-bp) {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    svg {
+      width: 0.9rem;
+      height: 0.9rem;
+
+      @include breakpoint($xs-bp) {
+        width: 0.5rem;
+        height: 0.5rem;
+      }
+    }
+  }
+
+  &__content {
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+    max-width: 27.6rem;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background-color: $white;
+    color: $black;
+    box-shadow: 0 0.4rem 5rem #0000000D;
+
+    @include breakpoint($xs-bp) {
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      max-width: 24rem;
+    }
+  }
+}

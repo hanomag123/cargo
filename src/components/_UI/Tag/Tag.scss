@@ -1,0 +1,17 @@
+.tag {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: $black;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 1.3rem 1.5rem;
+  border: 0.1rem solid #28355F26;
+  border-radius: 1.5rem;
+
+  @include breakpoint($xs-bp) {
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+}

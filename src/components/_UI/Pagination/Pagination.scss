@@ -1,0 +1,37 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+
+  &__link {
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $neutral_700;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1;
+
+    @include breakpoint($xs-bp) {
+      font-size: 1.4rem;
+    }
+
+    &:is(a) {
+      transition: 0.3s;
+
+      @include hover {
+        color: $orange_500;
+      }
+    }
+
+    &._active {
+      background-color: $neutral_700;
+      color: $neutral_50;
+    }
+  }
+}

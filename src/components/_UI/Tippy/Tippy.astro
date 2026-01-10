@@ -1,0 +1,19 @@
+---
+import { Sprite } from "astro-icon";
+
+interface Props {
+  content?: string;
+}
+
+const { content } = Astro.props;
+---
+
+<span
+  class="tippy"
+  data-tippy
+  data-tippy-content={`<div class="tippy__content">${content || ""}</div>`}
+>
+  <span class="tippy__icon">
+    <Sprite name="info" />
+  </span>
+</span>

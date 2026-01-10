@@ -1,0 +1,186 @@
+.template {
+
+  b,
+  strong {
+    font-weight: 500;
+  }
+
+  i {
+    font-style: italic;
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1.1;
+    font-weight: 700;
+  }
+
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+    font-weight: 500;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    &:not(:last-child) {
+      margin-bottom: 3.2rem;
+    }
+  }
+
+  p,
+  h5,
+  h6,
+  ul,
+  ol {
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  div,
+  section,
+  table,
+  blockquote {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  img {
+    display: block;
+    margin-bottom: 2rem;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: auto;
+  }
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 830/468;
+  }
+
+  ul {
+    list-style: disc;
+    list-style-position: outside;
+    padding-left: 2rem;
+
+    @include breakpoint($xs-bp) {
+      padding-left: 1.8rem;
+    }
+
+    li {
+      margin-bottom: 0.4em;
+    }
+  }
+
+  ol {
+    counter-reset: item;
+    list-style: none;
+
+    &>li {
+      position: relative;
+      counter-increment: item;
+      margin-bottom: 0.4em;
+      padding-left: 1.8em;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: counters(item, ".") ". ";
+      }
+
+      &>ol {
+        &>li {
+          padding-left: 2.4em;
+
+          &>ol {
+            &>li {
+              padding-left: 3.4em;
+            }
+          }
+
+          &>.table {
+            width: calc(100% + 3.6em);
+            margin-left: -3.6em;
+          }
+        }
+      }
+
+      &>.table {
+        width: calc(100% + 1.8em);
+        margin-left: -1.8em;
+      }
+    }
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  blockquote {
+    position: relative;
+    padding: 4.8rem 1.6rem;
+    background-color: $neutral_200;
+    border-radius: 1.6rem;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      font-size: 4.8rem;
+      font-weight: 700;
+    }
+
+    &::before {
+      content: "“";
+      top: 0.8rem;
+      left: 1.6rem;
+    }
+
+    &::after {
+      content: "„";
+      bottom: 0.8rem;
+      right: 1.6rem;
+    }
+  }
+
+  table {
+    width: 100%;
+    text-align: center;
+
+    @include breakpoint($xs-bp) {
+      width: max-content;
+      max-width: 80rem;
+    }
+
+    thead {
+      font-weight: 500;
+    }
+
+    td,
+    th {
+      padding: 1.6rem 0.8rem;
+      min-height: 11rem;
+      align-content: center;
+    }
+  }
+
+  .table {
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+    @include scrollbar(0.4rem, $neutral_200, $orange_500, 0.4rem);
+  }
+}

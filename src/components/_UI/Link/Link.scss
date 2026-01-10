@@ -1,0 +1,19 @@
+.link {
+  font-size: 1.8rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: .3s;
+
+  @include hover {
+    color: $primary-hover;
+  }
+
+  @include breakpoint($sm-bp) {
+    font-size: 1.6rem;
+    text-underline-offset: 0.15em;
+  }
+
+  &_white {
+    color: $white;
+  }
+}

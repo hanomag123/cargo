@@ -1,0 +1,35 @@
+---
+// @ts-nocheck
+import type { IUIButtonAttributes, IUIVariableComponent } from "src/interface";
+
+interface Props
+  extends IUIButtonAttributes,
+    IUIVariableComponent,
+    astroHTML.JSX.ButtonHTMLAttributes {
+  variant?: null;
+  size?: null;
+  color?: "inverse";
+}
+
+const {
+  component: Wrapper = "button",
+  variant,
+  size,
+  color,
+  ...props
+} = Astro.props;
+---
+
+<Wrapper
+  class="icon-btn"
+  class:list={[
+    {
+      ["icon-btn_" + color]: color,
+      ["icon-btn_" + variant]: variant,
+      ["icon-btn_" + size]: size,
+    },
+  ]}
+  {...props}
+>
+  <slot />
+</Wrapper>

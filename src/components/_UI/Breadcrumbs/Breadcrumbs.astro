@@ -1,0 +1,30 @@
+---
+import { Sprite } from "astro-icon";
+
+interface Props {
+  items?: string[];
+  color?: null;
+}
+
+const { items = [], color, ...props } = Astro.props;
+---
+
+<div
+  class:list={["breadcrumbs", { ["breadcrumbs_" + color]: color }]}
+  {...props}
+>
+  {
+    items.map((el, i) => {
+      if (i === items.length - 1) {
+        return <span class="breadcrumbs__link">{el}</span>;
+      } else {
+        return (
+          <a href="#" class="breadcrumbs__link">
+            {el}
+            <Sprite name="chevron-right" />
+          </a>
+        );
+      }
+    })
+  }
+</div>

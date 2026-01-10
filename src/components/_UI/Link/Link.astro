@@ -1,0 +1,21 @@
+---
+// @ts-nocheck
+import type { IUIButtonAttributes, IUIVariableComponent } from "src/interface";
+
+interface Props
+  extends IUIButtonAttributes,
+    IUIVariableComponent,
+    astroHTML.JSX.ButtonHTMLAttributes {
+  color?: "white";
+  className?: string;
+}
+
+const { component: Wrapper = "a", className, color, ...props } = Astro.props;
+---
+
+<Wrapper
+  class:list={["link", { ["link_" + color]: color }, className]}
+  {...props}
+>
+  <slot />
+</Wrapper>

@@ -1,0 +1,27 @@
+---
+import { Sprite } from "astro-icon";
+
+interface Props {
+  type?: string | null;
+}
+
+const { type = "./img/pdf.svg" } = Astro.props;
+---
+
+<a href="#" class="doc">
+  <span class="doc__inner">
+    {
+      type && (
+        <span class="doc__type">
+          <img src={type} alt="pdf" />
+        </span>
+      )
+    }
+    <span class="doc__title">
+      <slot />
+    </span>
+  </span>
+  <span class="doc__icon">
+    <Sprite name="download" />
+  </span>
+</a>

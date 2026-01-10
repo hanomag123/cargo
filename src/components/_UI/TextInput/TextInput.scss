@@ -1,0 +1,72 @@
+.text-input {
+  display: flex;
+  flex-direction: column;
+
+  &.invalid {
+    .text-input__field {
+      border-color: $error;
+    }
+  }
+
+  &__label {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 400;
+    color: $neutral_500;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+  }
+
+  &__field {
+    width: 100%;
+    padding: 1.6rem 2rem;
+    border: 0.1rem solid $neutral_500;
+    border-radius: 0.8rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: $neutral_700;
+    transition: .3s;
+
+    &:disabled {
+      background-color: $neutral_100;
+    }
+
+    &::placeholder {
+      color: $neutral_400;
+    }
+
+    &:focus {
+      border-color: $neutral_900;
+    }
+
+    // &:not(:placeholder-shown),
+    // &:focus {
+    //   border-color: $orange_500;
+    // }
+
+    &:is(textarea) {
+      height: 14.8rem;
+      resize: none;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 1.6rem;
+    translate: 0 -50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $neutral_400;
+
+    &~.text-input__field {
+      padding-right: 4rem;
+    }
+  }
+}

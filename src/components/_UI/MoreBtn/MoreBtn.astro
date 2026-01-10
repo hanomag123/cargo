@@ -1,0 +1,41 @@
+---
+// @ts-nocheck
+import type { IUIButtonAttributes, IUIVariableComponent } from "src/interface";
+import { Sprite } from "astro-icon";
+
+interface Props
+  extends IUIButtonAttributes,
+    IUIVariableComponent,
+    astroHTML.JSX.ButtonHTMLAttributes {
+  variant?: null;
+  size?: null;
+  color?: null;
+}
+
+const {
+  component: Wrapper = "button",
+  variant,
+  size,
+  color,
+  ...props
+} = Astro.props;
+---
+
+<Wrapper
+  class="more-btn"
+  class:list={[
+    {
+      ["more-btn_" + color]: color,
+      ["more-btn_" + variant]: variant,
+      ["more-btn_" + size]: size,
+    },
+  ]}
+  {...props}
+>
+  <span class="more-btn__icon">
+    <Sprite name="plus" />
+  </span>
+  <span class="more-btn__text">
+    <slot />
+  </span>
+</Wrapper>

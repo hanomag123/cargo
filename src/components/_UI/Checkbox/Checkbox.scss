@@ -1,0 +1,58 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: $neutral_600;
+  cursor: pointer;
+
+  &.invalid {
+    .checkbox__icon {}
+  }
+
+  &__input {
+    &:disabled~.checkbox__icon {
+      opacity: 0.5;
+    }
+
+    &:disabled~.checkbox__text {
+      opacity: 0.5;
+    }
+
+    &:checked~.checkbox__icon {
+      background-color: $neutral_900;
+      border-color: $neutral_900;
+
+      svg {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__icon {
+    flex: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: $neutral_50;
+    border-radius: 0.4rem;
+    border: 0.1rem solid $neutral_400;
+    margin: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    transition: .3s;
+
+    svg {
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+  }
+
+  a {
+    transition: .3s;
+
+    @include hover {}
+  }
+}

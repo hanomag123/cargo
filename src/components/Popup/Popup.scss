@@ -1,0 +1,57 @@
+.popup {
+  position: fixed;
+  z-index: 5000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: grid;
+  background-color: #02011880;
+  transition: .5s;
+
+  &:not(._popup-open) {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 65.8rem;
+    margin: auto;
+    background-color: $white;
+    padding: 6rem 4rem 4rem;
+    transition: .5s;
+
+    @include breakpoint($xs-bp) {
+      padding: 4rem 1.6rem 2rem;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    width: 4rem;
+    height: 4rem;
+    color: $neutral_400;
+    transition: .3s;
+
+    @include hover {
+      color: $orange_500;
+    }
+  }
+}
+
+@import "./PopupAsk/PopupAsk.scss";
+@import "./PopupOrder/PopupOrder.scss";
+@import "./PopupDeliv/PopupDeliv.scss";

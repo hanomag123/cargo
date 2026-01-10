@@ -1,0 +1,62 @@
+---
+import { Sprite } from "astro-icon";
+import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+
+interface Props {}
+
+const {} = Astro.props;
+---
+
+<header class="header">
+  <div class="container header__wrapper">
+    <div class="header__top">
+      <nav class="header-nav">
+        <a href="#" class="header-nav__link">О компании</a>
+        <a href="#" class="header-nav__link">Карьера</a>
+        <a href="#" class="header-nav__link">Контакты</a>
+      </nav>
+      <div class="header__top-inner">
+        <a href="tel:88123268080" class="header__phone">8 (812) 326-80-80</a>
+        <div class="header-lang" data-dropdown data-close>
+          <button type="button" class="header-lang__btn" data-dropdown-btn>
+            <span class="header-lang__btn-text">RU</span>
+            <Sprite name="chevron-down" />
+          </button>
+          <div class="header-lang__drop">
+            <div class="header-lang__container">
+              <div class="header-lang__list">
+                <a href="#" class="header-lang__item">EN</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header__container">
+      <a href="#" class="header__logo">
+        <img src="./img/logo.svg" alt="" />
+      </a>
+      <DefaultBtn color="white" class="header__serv-btn">
+        <Sprite name="menu" />
+         Услуги
+      </DefaultBtn>
+      <form action="#" class="header-search">
+        <button type="submit" class="header-search__btn">
+          <Sprite name="search" />
+        </button>
+        <input type="text" class="header-search__input" />
+      </form>
+      <DefaultBtn color="white" class="header__btn">
+        <Sprite name="calculator" />
+      </DefaultBtn>
+      <DefaultBtn color="white" class="header__btn">
+        <Sprite name="file-text" />
+      </DefaultBtn>
+      <DefaultBtn class="header__order-btn">
+        Заявка на перевозку
+        <Sprite name="arrow-up-right" />
+      </DefaultBtn>
+    </div>
+  </div>
+</header>

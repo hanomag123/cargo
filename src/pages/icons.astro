@@ -1,0 +1,15 @@
+---
+import Sprite from "node_modules/astro-icon/lib/Sprite.astro";
+import Layout from "src/layouts/Layout.astro";
+import icons from "src/icons.json";
+---
+
+<Layout title="all icons">
+  <div style="display: flex; flex-wrap: wrap; gap: 10px; padding: 50px 20px">
+    {
+      icons.map((icon) => (
+        <Sprite name={icon} style="width: 30px;height: 30px;" />
+      ))
+    }
+  </div>
+</Layout>

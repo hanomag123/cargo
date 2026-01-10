@@ -1,0 +1,30 @@
+@import "scss-reset/reset";
+@import "normalize-scss";
+@import "venobox/dist/venobox.min.css";
+@import "./utils/vars";
+@import "./utils/mixins";
+@import "./utils/fonts";
+
+@import "swiper/scss";
+// @import "aos/dist/aos.css";
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  // font-size: calc(100vw / 1920 * 10);
+
+  @include breakpoint($xl-bp) {
+    font-size: calc(100vw / 1920 * 10);
+  }
+
+  // @include breakpoint($sm-bp) {
+  //   font-size: calc(100vw / 1024 * 10);
+  // }
+
+  @include breakpoint($xs-bp) {
+    font-size: calc(100vw / 375 * 10);
+  }
+}
+
+@import "./general";
+@import "./components";

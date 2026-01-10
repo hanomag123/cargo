@@ -1,0 +1,14 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className, ...props } = Astro.props;
+---
+
+<div class:list={["popup", className]} {...props}>
+  <div class="popup__bg" data-close-popup></div>
+  <div class="popup__container">
+    <slot />
+  </div>
+</div>

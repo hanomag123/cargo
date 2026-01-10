@@ -1,0 +1,36 @@
+.radio {
+  .checkbox__input {
+    &:checked {
+      ~.checkbox__icon {
+        background-color: $neutral_50;
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .checkbox__icon {
+    position: relative;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    border: 0.1rem solid $neutral_700;
+    background-color: $neutral_50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background-color: $neutral_700;
+      opacity: 0;
+      transition: .3s;
+    }
+  }
+}

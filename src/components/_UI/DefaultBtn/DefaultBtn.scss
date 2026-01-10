@@ -1,0 +1,56 @@
+.default-btn {
+  padding: 1.6rem 2.4rem;
+  min-height: 6.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  border-radius: 1.5rem;
+  background-color: $G1;
+  color: $white;
+  border: 0.1rem solid $G1;
+  transition: .3s;
+
+  @include hover {
+    background-color: $backgroud;
+    color: $G1;
+  }
+
+  &:disabled,
+  &._disabled {
+    background-color: $stroke;
+    color: $inactive;
+    border-color: $stroke;
+  }
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  // colors
+  &_secondary {
+    background-color: $backgroud;
+    color: $G1;
+
+    @include hover {
+      background-color: $G1;
+      color: $white;
+    }
+  }
+
+  &_white {
+    background-color: $white;
+    color: $G1;
+    border-color: $white;
+
+    @include hover {
+      background-color: $G1;
+      border-color: $G1;
+      color: $white;
+    }
+  }
+}
