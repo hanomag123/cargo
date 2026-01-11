@@ -1,93 +1,135 @@
-class HeaderMenu {
-  menuIsOpen: boolean = false;
+class HeaderController {
+  wrapper: HTMLElement;
+  headerServ: HeaderServ;
+  headerMenu: HeaderMenu;
 
-  constructor() {
-    document.addEventListener("click", this.clickHandler.bind(this));
+  constructor(wrapper: HTMLElement) {
+    this.wrapper = wrapper;
+    this.headerServ = new HeaderServ(this.wrapper);
+    this.headerMenu = new HeaderMenu(this.wrapper);
+
+    this.init();
   }
 
-  clickHandler(e: MouseEvent) {
-    const target = e.target as HTMLElement;
+  init() {
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
 
-    if (target.closest("[data-toggle-menu]")) {
-      this.toggleMenu();
-      return;
-    }
+      const servOpenBtn = target.closest<HTMLElement>(
+        "[data-header-serv-open]",
+      );
+      if (servOpenBtn) {
+        this.headerServ.open();
+      }
 
-    if (target.closest("[data-open-menu]")) {
-      this.openMenu();
-      return;
-    }
+      const servCloseBtn = target.closest<HTMLElement>(
+        "[data-header-serv-close]",
+      );
+      if (servCloseBtn) {
+        this.headerServ.close();
+      }
 
-    if (target.closest("[data-close-menu]")) {
-      this.closeMenu();
-      return;
-    }
+      const servCloseItems = target.closest<HTMLElement>(
+        "[data-header-serv-close-items]",
+      );
+      if (servCloseItems) {
+        this.headerServ.closeItems();
+      }
 
-    if (target.closest("[data-toggle-catalog]")) {
-      this.toggleCatalog();
-      return;
-    }
-  }
+      const menuOpenBtn = target.closest<HTMLElement>(
+        "[data-header-menu-open]",
+      );
+      if (menuOpenBtn) {
+        this.headerMenu.open();
+      }
 
-  closeMenu() {
-    document.body.classList.remove("_menu-open");
-    this.menuIsOpen = false;
-  }
+      const menuCloseBtn = target.closest<HTMLElement>(
+        "[data-header-menu-close]",
+      );
+      if (menuCloseBtn) {
+        this.headerMenu.close();
+      }
 
-  openMenu() {
-    document.body.classList.add("_menu-open");
-    this.menuIsOpen = true;
-    document.body.classList.remove("_header-hide");
-  }
-
-  toggleMenu() {
-    if (this.menuIsOpen) {
-      this.closeMenu();
-    } else {
-      this.openMenu();
-    }
-  }
-
-  toggleCatalog() {
-    document.body.classList.toggle("_catalog-open");
+      const menuToggleBtn = target.closest<HTMLElement>(
+        "[data-header-menu-toggle]",
+      );
+      if (menuToggleBtn) {
+        this.headerMenu.toggle();
+      }
+    });
   }
 }
 
-class HeaderScroll {
-  scrollY: number = 0;
+class HeaderServ {
+  wrapper: HTMLElement;
+  items: HTMLElement[] = [];
 
-  constructor() {
-    document.addEventListener("scroll", this.scrollHandler.bind(this));
+  constructor(wrapper: HTMLElement) {
+    this.wrapper = wrapper;
+    this.wrapper
+      .querySelectorAll<HTMLElement>("[data-header-serv-item]")
+      .forEach((container) => {
+        const btn = container.querySelector<HTMLElement>(
+          "[data-header-serv-item-btn]",
+        );
+
+        this.items.push(container);
+
+        if (btn) {
+          btn.addEventListener("click", this.openItem.bind(this, container));
+        }
+      });
   }
 
-  scrollHandler() {
-    const scrollY = window.scrollY;
+  open() {
+    this.wrapper.classList.add("_open-serv");
+  }
 
-    if (
-      document.body.classList.contains("_menu-open") ||
-      document.body.classList.contains("_search-open")
-    ) {
-      this.scrollY = scrollY;
-      return;
-    }
+  close() {
+    this.wrapper.classList.remove("_open-serv");
 
-    if (scrollY > 300) {
-      document.body.classList.add("_header-sticky");
-      if (scrollY > this.scrollY) {
-        document.body.classList.remove("_header-show");
-      } else {
-        document.body.classList.add("_header-show");
-      }
-    } else {
-      document.body.classList.remove("_header-sticky");
-      document.body.classList.remove("_header-show");
-    }
+    this.items.forEach((item) => {
+      item.classList.remove("_active");
+    });
+  }
 
-    this.scrollY = scrollY;
+  openItem(container: HTMLElement) {
+    this.closeItems();
+
+    container.classList.add("_active");
+  }
+
+  closeItems() {
+    this.items.forEach((item) => {
+      item.classList.remove("_active");
+    });
+  }
+}
+
+class HeaderMenu {
+  wrapper: HTMLElement;
+
+  constructor(wrapper: HTMLElement) {
+    this.wrapper = wrapper;
+  }
+
+  open() {
+    this.wrapper.classList.add("_open-menu");
+  }
+
+  close() {
+    this.wrapper.classList.remove("_open-menu");
+  }
+
+  toggle() {
+    this.wrapper.classList.toggle("_open-menu");
   }
 }
 
 export const initHeader = () => {
-  new HeaderMenu();
-  // new HeaderScroll();
+  const container = document.querySelector<HTMLElement>("[data-header]");
+
+  if (!container) return;
+
+  new HeaderController(container);
 };

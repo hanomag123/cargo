@@ -1,6 +1,7 @@
 .text-input {
   display: flex;
   flex-direction: column;
+  gap: 0.4rem;
 
   &.invalid {
     .text-input__field {
@@ -9,10 +10,11 @@
   }
 
   &__label {
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+    font-size: 1.4rem;
+    line-height: 1.28;
     font-weight: 400;
-    color: $neutral_500;
+    color: $G2;
+    padding-left: 2rem;
   }
 
   &__container {
@@ -22,24 +24,30 @@
 
   &__field {
     width: 100%;
-    padding: 1.6rem 2rem;
-    border: 0.1rem solid $neutral_500;
-    border-radius: 0.8rem;
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: $neutral_700;
+    min-height: 6rem;
+    padding: 1.8rem 2.4rem;
+    border: 0.1rem solid $G3;
+    background-color: $backgroud;
     transition: .3s;
+    font-size: 1.6rem;
+    line-height: 1.25;
+    font-weight: 400;
+    color: $G1;
+    border-radius: 1.2rem;
 
-    &:disabled {
-      background-color: $neutral_100;
+    @include breakpoint($xs-bp) {
+      min-height: 4.9rem;
+      padding: 1.4rem 2.4rem;
     }
 
+    &:disabled {}
+
     &::placeholder {
-      color: $neutral_400;
+      color: $G2;
     }
 
     &:focus {
-      border-color: $neutral_900;
+      border-color: $primary;
     }
 
     // &:not(:placeholder-shown),
@@ -50,23 +58,6 @@
     &:is(textarea) {
       height: 14.8rem;
       resize: none;
-    }
-  }
-
-  &__icon {
-    position: absolute;
-    top: 50%;
-    right: 1.6rem;
-    translate: 0 -50%;
-    width: 2.4rem;
-    height: 2.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $neutral_400;
-
-    &~.text-input__field {
-      padding-right: 4rem;
     }
   }
 }

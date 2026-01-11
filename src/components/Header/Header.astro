@@ -1,62 +1,272 @@
 ---
 import { Sprite } from "astro-icon";
 import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+import TextInput from "@components/_UI/TextInput/TextInput.astro";
 
 interface Props {}
 
 const {} = Astro.props;
 ---
 
-<header class="header">
-  <div class="container header__wrapper">
-    <div class="header__top">
-      <nav class="header-nav">
-        <a href="#" class="header-nav__link">О компании</a>
-        <a href="#" class="header-nav__link">Карьера</a>
-        <a href="#" class="header-nav__link">Контакты</a>
-      </nav>
-      <div class="header__top-inner">
-        <a href="tel:88123268080" class="header__phone">8 (812) 326-80-80</a>
-        <div class="header-lang" data-dropdown data-close>
-          <button type="button" class="header-lang__btn" data-dropdown-btn>
-            <span class="header-lang__btn-text">RU</span>
-            <Sprite name="chevron-down" />
-          </button>
-          <div class="header-lang__drop">
-            <div class="header-lang__container">
-              <div class="header-lang__list">
-                <a href="#" class="header-lang__item">EN</a>
+<header class="header" data-header>
+  <div class="container header__mob">
+    <DefaultBtn color="white" class="header__menu-btn" data-header-menu-toggle>
+      <Sprite name="menu" />
+    </DefaultBtn>
+
+    <a href="#" class="header__logo">
+      <img src="./img/logo.svg" alt="" />
+    </a>
+  </div>
+
+  <div class="header-menu">
+    <div class="container header-menu__wrapper">
+      <div class="header__top">
+        <nav class="header-nav">
+          <a href="#" class="header-nav__link">О компании</a>
+          <a href="#" class="header-nav__link">Карьера</a>
+          <a href="#" class="header-nav__link">Контакты</a>
+        </nav>
+        <div class="header__top-inner">
+          <a href="tel:88123268080" class="header__phone">8 (812) 326-80-80</a>
+          <div class="header-lang" data-dropdown data-close>
+            <button type="button" class="header-lang__btn" data-dropdown-btn>
+              <span class="header-lang__btn-text">RU</span>
+              <Sprite name="chevron-down" />
+            </button>
+            <div class="header-lang__drop">
+              <div class="header-lang__container">
+                <div class="header-lang__list">
+                  <a href="#" class="header-lang__item">EN</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="header__container">
+        <a href="#" class="header__logo">
+          <img src="./img/logo.svg" alt="" />
+        </a>
+        <DefaultBtn
+          color="white"
+          class="header__serv-btn"
+          data-header-serv-open
+        >
+          <Sprite name="menu" />
+           Услуги
+        </DefaultBtn>
+        <form action="#" class="header-search">
+          <button type="submit" class="header-search__btn">
+            <Sprite name="search" />
+          </button>
+          <TextInput
+            type="text"
+            placeholder="Поиск по сайту"
+            className="header-search__input"
+          />
+        </form>
+
+        <div class="header-menu__container">
+          <div class="header-menu__list">
+            <button
+              type="button"
+              class="header-menu__item"
+              data-header-serv-open>Услуги</button
+            >
+            <a href="#" class="header-menu__item">О компании</a>
+            <a href="#" class="header-menu__item">Карьера</a>
+            <a href="#" class="header-menu__item">Калькулятор</a>
+            <a href="#" class="header-menu__item">Документы</a>
+            <a href="#" class="header-menu__item">Контакты</a>
+          </div>
+        </div>
+
+        <DefaultBtn color="white" class="header__btn">
+          <Sprite name="calculator" />
+        </DefaultBtn>
+        <DefaultBtn color="white" class="header__btn">
+          <Sprite name="file-text" />
+        </DefaultBtn>
+        <DefaultBtn class="header__order-btn">
+          Заявка на перевозку
+          <Sprite name="arrow-up-right" />
+        </DefaultBtn>
+      </div>
     </div>
 
-    <div class="header__container">
-      <a href="#" class="header__logo">
-        <img src="./img/logo.svg" alt="" />
-      </a>
-      <DefaultBtn color="white" class="header__serv-btn">
-        <Sprite name="menu" />
-         Услуги
-      </DefaultBtn>
-      <form action="#" class="header-search">
-        <button type="submit" class="header-search__btn">
-          <Sprite name="search" />
-        </button>
-        <input type="text" class="header-search__input" />
-      </form>
-      <DefaultBtn color="white" class="header__btn">
-        <Sprite name="calculator" />
-      </DefaultBtn>
-      <DefaultBtn color="white" class="header__btn">
-        <Sprite name="file-text" />
-      </DefaultBtn>
-      <DefaultBtn class="header__order-btn">
-        Заявка на перевозку
-        <Sprite name="arrow-up-right" />
-      </DefaultBtn>
+    <div class="header-serv" data-header-serv>
+      <div class="header-serv__bg" data-header-serv-close></div>
+      <div class="header-serv__wrapper">
+        <div class="header-serv__container">
+          <div class="header-serv__head">
+            <span class="header-serv__title">Услуги</span>
+            <button
+              type="button"
+              class="header-serv__close"
+              data-header-serv-close
+            >
+              <Sprite name="close" />
+            </button>
+          </div>
+          <div class="header-serv__list">
+            <div class="header-serv-item" data-header-serv-item>
+              <button
+                type="button"
+                class="header-serv-item__btn"
+                data-header-serv-item-btn>Автомобильне перевозки</button
+              >
+              <div class="header-serv-item__container">
+                <div class="header-serv-item__head">
+                  <span class="header-serv__title">Автомобильне перевозки</span>
+                  <button
+                    type="button"
+                    class="header-serv__close"
+                    data-header-serv-close-items
+                  >
+                    <Sprite name="close" />
+                  </button>
+                </div>
+                <div class="header-serv-item__list">
+                  <a href="#" class="header-serv-item__link">
+                    Грузоперевозки гидробортом по России
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Грузоперевозки фурами
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Грузоперевозки до 5 тон
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Грузоперевозки до 10 тон
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Грузоперевозки 20 тон
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Перевозки еврофурой по России
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Автомобильные контейнерные перевозки
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Доставка в маркетплейсы
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="header-serv-item" data-header-serv-item>
+              <button
+                type="button"
+                class="header-serv-item__btn"
+                data-header-serv-item-btn
+              >
+                Авиаперевозки
+              </button>
+              <div class="header-serv-item__container">
+                <div class="header-serv-item__head">
+                  <span class="header-serv__title">Авиаперевозки</span>
+                  <button
+                    type="button"
+                    class="header-serv__close"
+                    data-header-serv-close-items
+                  >
+                    <Sprite name="close" />
+                  </button>
+                </div>
+                <div class="header-serv-item__list">
+                  <a href="#" class="header-serv-item__link">
+                    Авиаперевозки по России
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Международные aвиаперевозки
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Авиадоставка из Китая
+                  </a>
+                  <a href="#" class="header-serv-item__link"> Отправить груз</a>
+                </div>
+              </div>
+            </div>
+            <div class="header-serv-item" data-header-serv-item>
+              <button
+                type="button"
+                class="header-serv-item__btn"
+                data-header-serv-item-btn
+              >
+                Международные перевозки
+              </button>
+              <div class="header-serv-item__container">
+                <div class="header-serv-item__head">
+                  <span class="header-serv__title">Международные перевозки</span
+                  >
+                  <button
+                    type="button"
+                    class="header-serv__close"
+                    data-header-serv-close-items
+                  >
+                    <Sprite name="close" />
+                  </button>
+                </div>
+                <div class="header-serv-item__list">
+                  <a href="#" class="header-serv-item__link">
+                    Грузоперевозки из Китая
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Таможенный перевозчик
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="header-serv-item" data-header-serv-item>
+              <button
+                type="button"
+                class="header-serv-item__btn"
+                data-header-serv-item-btn
+              >
+                Особенные перевозки
+              </button>
+              <div class="header-serv-item__container">
+                <div class="header-serv-item__head">
+                  <span class="header-serv__title">Особенные перевозки</span>
+                  <button
+                    type="button"
+                    class="header-serv__close"
+                    data-header-serv-close-items
+                  >
+                    <Sprite name="close" />
+                  </button>
+                </div>
+                <div class="header-serv-item__list">
+                  <a href="#" class="header-serv-item__link">
+                    Авиаперевозки животных
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Рефрижераторные перевозки по России
+                  </a>
+                  <a href="#" class="header-serv-item__link">
+                    Перевозка опасных грузов
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="header-serv-item">
+              <a href="#" class="header-serv-item__btn">
+                Экспресс доставка МСК-СПб-МСК
+              </a>
+            </div>
+            <div class="header-serv-item">
+              <a href="#" class="header-serv-item__btn">
+                Таможенное оформление</a
+              >
+            </div>
+            <div class="header-serv-item">
+              <a href="#" class="header-serv-item__btn"> Склад и хранение</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>

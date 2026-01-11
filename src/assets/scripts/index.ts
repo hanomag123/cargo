@@ -5,6 +5,7 @@ import { PopupController } from "./utils/popup";
 import { initDropdownItems } from "./utils/dropdown";
 import { initSelectItems } from "./utils/select";
 import VenoBox from "venobox/dist/venobox";
+import { initHeader } from "@components/Header/Header";
 
 Swiper.use([Navigation, Manipulation]);
 
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSelectItems();
 
   // компоненты
+  initHeader();
   // <--
 
   // События

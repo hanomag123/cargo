@@ -5,10 +5,24 @@
   width: 100%;
   padding: 2rem 0rem;
 
-  &__wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  @include breakpoint($xs-bp) {
+    padding: 1.6rem 0rem;
+  }
+
+  &:not(._open-serv) {
+    .header-serv {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &:not(._open-menu) {
+    @include breakpoint($xs-bp) {
+      .header-menu {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
   }
 
   &__top {
@@ -17,10 +31,33 @@
     justify-content: space-between;
     gap: 5rem;
 
+    @include breakpoint($xs-bp) {
+      order: 3;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
     &-inner {
       display: flex;
       align-items: center;
       gap: 2rem;
+
+      @include breakpoint($xs-bp) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__mob {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
     }
   }
 
@@ -28,6 +65,10 @@
     display: flex;
     align-items: center;
     gap: 5rem;
+
+    @include breakpoint($xs-bp) {
+      display: none;
+    }
 
     &__link {
       font-size: 1.8rem;
@@ -47,6 +88,10 @@
     font-weight: 400;
     transition: .3s;
 
+    @include breakpoint($xs-bp) {
+      font-size: 1.4rem;
+    }
+
     @include hover {
       color: $primary;
     }
@@ -54,6 +99,7 @@
 
   &-lang {
     position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
 
@@ -74,9 +120,19 @@
 
       &._dropped {
         .header-lang__btn {
+          background-color: $backgroud;
+
+          @include breakpoint($xs-bp) {
+            background-color: $white;
+          }
+
           svg {
             scale: 1 -1;
           }
+        }
+
+        .header-lang__drop {
+          background-color: $backgroud;
         }
       }
     }
@@ -95,6 +151,11 @@
       border-radius: 0.5rem 0.5rem 0 0;
       transition: .3s;
 
+      @include breakpoint($xs-bp) {
+        font-size: 1.4rem;
+        padding: 0.8rem 1rem;
+      }
+
       svg {
         width: 1.6rem;
         height: 1.6rem;
@@ -104,7 +165,7 @@
 
     &__drop {
       position: absolute;
-      top: 100%;
+      top: calc(100% - 0.2rem);
       left: 0;
       width: 100%;
       display: grid;
@@ -136,6 +197,10 @@
       font-weight: 400;
       transition: .3s;
 
+      @include breakpoint($xs-bp) {
+        font-size: 1.4rem;
+      }
+
       @include hover {
         color: $primary;
       }
@@ -144,25 +209,406 @@
 
   &__container {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
-    gap: 2.4rem;
+    gap: 3rem;
+
+    @include breakpoint($xs-bp) {
+      flex-direction: column;
+      gap: 0;
+    }
   }
 
   &__logo {
     width: 16.7rem;
+
+    @include breakpoint($xs-bp) {
+      width: 11.2rem;
+    }
 
     @include img() {
       object-fit: contain;
       object-position: left center;
       width: 100%;
       height: 100%;
+
+      @include breakpoint($xs-bp) {
+        object-position: right center;
+      }
+    }
+  }
+
+  &__btn {
+    border-radius: 50%;
+    padding: 0rem;
+    border-radius: 50%;
+    aspect-ratio: 1;
+
+    @include breakpoint($xs-bp) {
+      display: none;
+    }
+
+    svg {
+      width: 3.4rem;
+      height: 3.4rem;
+    }
+  }
+
+  &__menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.6rem;
+    height: 4.4rem;
+    min-height: unset;
+    padding: 0;
+    border: 0.1rem solid $G3;
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+
+  &__serv-btn {
+    @include breakpoint($xs-bp) {
+      display: none;
     }
   }
 
   &-search {
+    flex: 1;
     position: relative;
 
-    &__input {}
+    &__btn {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 2.4rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      translate: 0 -50%;
+      transition: .3s;
+      color: $G2;
+
+      @include breakpoint($xs-bp) {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      @include hover {
+        color: $primary;
+      }
+    }
+
+    &__input {
+      height: 100%;
+
+      .text-input__container {
+        flex: 1;
+      }
+
+      .text-input__field {
+        height: 100%;
+        background-color: $white;
+        padding-left: 5.8rem;
+
+        @include breakpoint($xs-bp) {
+          padding-left: 5.4rem;
+        }
+      }
+    }
+  }
+}
+
+.header-menu {
+  @include breakpoint($xs-bp) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding-top: 7.6rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    transition: .3s;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include breakpoint($xs-bp) {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      padding-top: 1.2rem;
+      padding-bottom: 8rem;
+      gap: 4rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin: 1.2rem 0rem 4rem;
+    display: none;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    padding: 1.5rem 0;
+    font-size: 1.6rem;
+    text-align: left;
+    transition: .3s;
+
+    @include hover {
+      color: $primary;
+    }
+  }
+
+  .header__logo {
+    display: none;
+  }
+}
+
+.header-serv {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #6666661A;
+  transition: .5s;
+  overflow: hidden;
+
+  @include breakpoint($xs-bp) {
+    position: absolute;
+    top: 7.6rem;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 7.6rem);
+  }
+
+  &__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    @include breakpoint($xs-bp) {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    width: fit-content;
+
+    @include breakpoint($xs-bp) {
+      width: 100%;
+    }
+  }
+
+  &__container {
+    position: relative;
+    width: 39rem;
+    height: 100%;
+    background-color: $white;
+    padding: 3rem 0rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+
+    @include breakpoint($xs-bp) {
+      padding: 0rem 2rem;
+      width: 100%;
+      gap: 0.6rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      border-right: 0.2rem solid $G4;
+
+      @include breakpoint($xs-bp) {
+        display: none;
+        content: none;
+      }
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.4rem;
+    padding: 0rem 3rem;
+
+    @include breakpoint($xs-bp) {
+      padding: 0.8rem 0rem;
+    }
+  }
+
+  &__title {
+    font-size: 4.5rem;
+    font-weight: 500;
+
+    @include breakpoint($xs-bp) {
+      font-size: 2.8rem;
+    }
+  }
+
+  &__close {
+    width: 3.4rem;
+    height: 3.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+
+    @include breakpoint($xs-bp) {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    @include hover {
+      color: $primary;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 0rem;
+    }
+  }
+
+  &-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &._active {
+      .header-serv-item__btn {
+        background-color: $G4;
+        border-color: $PR1;
+      }
+    }
+
+    &:not(._active) {
+      .header-serv-item__container {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    &__btn {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 1.5rem 2rem 1.5rem 3rem;
+      font-size: 2rem;
+      line-height: 1.4;
+      font-weight: 400;
+      text-align: left;
+      transition: .3s;
+      border-right: 0.2rem solid transparent;
+
+      @include breakpoint($xs-bp) {
+        padding: 1.5rem 2rem 1.5rem 0rem;
+        font-size: 1.6rem;
+      }
+
+      @include hover {
+        border-color: $PR1;
+      }
+    }
+
+    &__container {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 100%;
+      width: 52rem;
+      height: 100%;
+      background-color: $white;
+      transition: .3s;
+      padding: 3rem;
+
+      @include breakpoint($xs-bp) {
+        width: 100%;
+        left: 0;
+        padding: 0rem 2rem;
+      }
+    }
+
+    &__head {
+      display: none;
+
+      @include breakpoint($xs-bp) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2.4rem;
+        padding: 0.8rem 0rem;
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2.5rem;
+
+      @include breakpoint($xs-bp) {
+        gap: 0rem;
+      }
+    }
+
+    &__link {
+      font-size: 2rem;
+      line-height: 1.4;
+      font-weight: 400;
+      transition: .3s;
+
+      @include breakpoint($xs-bp) {
+        font-size: 1.6rem;
+        padding: 1.5rem 0rem;
+        width: 100%;
+      }
+
+      @include hover {
+        color: $primary;
+      }
+    }
   }
 }
