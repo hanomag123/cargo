@@ -3,4 +3,71 @@ import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
 import { Sprite } from "astro-icon";
 ---
 
-<footer class="footer"></footer>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__wrapper">
+      <div class="footer__container">
+        <a href="#" class="footer__logo">
+          <img src="./img/logo.svg" alt="logo" />
+        </a>
+
+        <div class="footer__inner">
+          <div class="footer-nav">
+            <span class="footer-nav__title">Страницы</span>
+            <div class="footer-nav__list">
+              <a href="#" class="footer-nav__link">Главная</a>
+              <a href="#" class="footer-nav__link">О компании</a>
+              <a href="#" class="footer-nav__link">Карьера</a>
+              <a href="#" class="footer-nav__link">Контакты</a>
+            </div>
+          </div>
+          <div class="footer-nav footer__services">
+            <span class="footer-nav__title">Услуги</span>
+            <div class="footer-nav__list">
+              <a href="#" class="footer-nav__link">Автомобильне перевозки</a>
+              <a href="#" class="footer-nav__link">Авиаперевозки</a>
+              <a href="#" class="footer-nav__link">Международные перевозки</a>
+              <a href="#" class="footer-nav__link">Особенные перевозки</a>
+              <a href="#" class="footer-nav__link">Таможенное оформление</a>
+              <a href="#" class="footer-nav__link">Склад и хранение</a>
+              <a href="#" class="footer-nav__link"
+                >Экспресс доставка МСК-СПб-МСК</a
+              >
+            </div>
+          </div>
+          <div class="footer-nav">
+            <span class="footer-nav__title">Контакты</span>
+            <div class="footer-nav__list">
+              <a href="#" class="footer-nav__link">8 (812) 326-80-80</a>
+              <a href="#" class="footer-nav__link">8 (495) 128-12-00</a>
+              <a href="#" class="footer-nav__link">8 (800) 550-4-550</a>
+            </div>
+            <div class="footer-nav__contacts">
+              <span class="footer-nav__contact">Спб, ул. Штурманская 3/5</span>
+              <span class="footer-nav__contact"
+                >МСК, ул. Иловайская 3, стр.18</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <a href="#" class="footer__legal">
+          Политика в отношении обработки персональных данных
+        </a>
+        <a href="#" class="footer__legal">
+          Согласие на обработку персональных данных
+        </a>
+        <a
+          href="https://yar-studio.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer__legal"
+        >
+          Разработка сайта Студия ЯР
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
