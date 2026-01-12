@@ -56,8 +56,12 @@
     // }
 
     &:is(textarea) {
-      height: 14.8rem;
+      height: 20rem;
       resize: none;
+
+      @include breakpoint($xs-bp) {
+        height: 16.8rem;
+      }
     }
   }
 }

@@ -6,7 +6,7 @@ interface Props
   extends IUIButtonAttributes,
     IUIVariableComponent,
     astroHTML.JSX.ButtonHTMLAttributes {
-  color?: "inverse";
+  color?: null;
 }
 
 const { component: Wrapper = "span", color, ...props } = Astro.props;

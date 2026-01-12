@@ -1,0 +1,171 @@
+.feedback {
+  padding: 13.4rem 0;
+
+  @include breakpoint($xs-bp) {
+    padding: 0rem 0rem 12rem;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 79rem;
+    gap: 13.5rem;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4rem;
+    justify-content: space-between;
+
+    @include breakpoint($xs-bp) {
+      gap: 3.2rem;
+    }
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3rem;
+    }
+  }
+
+  &__call {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    font-size: 3.4rem;
+    font-weight: 500;
+    color: $PR1;
+    transition: .3s;
+
+    @include breakpoint($xs-bp) {
+      font-size: 2.4rem;
+    }
+
+    @include hover {
+      color: $primary;
+    }
+
+    svg {
+      width: 4.4rem;
+      height: 4.4rem;
+
+      @include breakpoint($xs-bp) {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 3rem;
+    font-weight: 400;
+
+    @include breakpoint($xs-bp) {
+      font-size: 2rem;
+    }
+  }
+
+  &-form {
+    position: relative;
+    padding: 3rem;
+    background-color: $white;
+    border-radius: 1.6rem;
+    box-shadow: 3rem 3rem 13rem #0000001A, 0rem 3rem 7rem #FFFFFF1A;
+
+    @include breakpoint($xs-bp) {
+      padding: 3rem 2rem;
+    }
+
+    &._sent {
+      .feedback-form__sent {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .feedback-form__container {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    &__sent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+
+      @include breakpoint($xs-bp) {
+        gap: 1rem;
+        padding: 3rem 2rem;
+      }
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+
+      @include breakpoint($xs-bp) {
+        gap: 3.2rem;
+      }
+    }
+
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      @include breakpoint($xs-bp) {
+        gap: 2.4rem;
+      }
+
+      &-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+
+        @include breakpoint($xs-bp) {
+          display: flex;
+          flex-direction: column;
+          gap: 2.4rem;
+        }
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+
+      @include breakpoint($xs-bp) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2.4rem;
+      }
+    }
+
+    &__btn {
+      flex: none;
+      min-width: 29rem;
+
+      @include breakpoint($xs-bp) {
+        min-width: unset;
+      }
+    }
+  }
+}

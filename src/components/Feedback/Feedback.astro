@@ -1,0 +1,67 @@
+---
+import Checkbox from "@components/_UI/Checkbox/Checkbox.astro";
+import Chip from "@components/_UI/Chip/Chip.astro";
+import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+import TextInput from "@components/_UI/TextInput/TextInput.astro";
+import { Sprite } from "astro-icon";
+---
+
+<section class="feedback">
+  <div class="container feedback__container">
+    <div class="feedback__head">
+      <div class="feedback__head-inner">
+        <Chip>Feedback</Chip>
+        <h3 class="block-title feedback__title">
+          Отправьте нам запрос через форму обратной связи или свяжитесь с нами
+          напрямую
+        </h3>
+      </div>
+      <a href="#" class="feedback__call">
+        <Sprite name="phone" />
+         +7 812 326-80-80
+      </a>
+    </div>
+
+    <form action="#" class="feedback-form _sent1" data-action="form-submit">
+      <div class="feedback-form__sent">
+        <h3 class="block-title feedback__title">Спасибо за заявку!</h3>
+        <p class="feedback__subtitle">Мы свяжемся с вами в ближайшее время.</p>
+      </div>
+      <div class="feedback-form__container">
+        <div class="feedback-form__inputs">
+          <div class="feedback-form__inputs-row">
+            <TextInput
+              label="Введите ваше имя"
+              placeholder="Имя"
+              required
+              className="fv"
+              data-action="required-text"
+            />
+            <TextInput
+              label="Введите номер телефона"
+              placeholder="+7 (999) 999-99-99"
+              required
+              className="fv"
+              data-action="required-text"
+              data-mast="+7 (999) 999-99-99"
+              data-mask-init
+            />
+          </div>
+          <TextInput textarea label="Текст запроса" placeholder="Текст" />
+        </div>
+        <div class="feedback-form__bottom">
+          <Checkbox className="fv" required data-action="required-checkbox">
+            Я согласен с обработкой моих персональных данных, согласно правилам
+            <a href="#" target="_blank" rel="noopener noreferrer"
+              >политики конфиденциальности</a
+            > данной платформы
+          </Checkbox>
+          <DefaultBtn type="submit" class="feedback-form__btn">
+            Оставить заявку
+            <Sprite name="arrow-up-right" />
+          </DefaultBtn>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

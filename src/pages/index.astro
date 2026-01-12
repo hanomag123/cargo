@@ -1,9 +1,12 @@
 ---
+import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Разводящая">
-  <div class="wrapper"></div>
+  <div class="wrapper">
+    <DefaultBtn component="a" href="./main.html">Главная</DefaultBtn>
+  </div>
 
   <style is:inline>
     .wrapper {

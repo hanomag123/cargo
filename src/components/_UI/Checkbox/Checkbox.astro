@@ -3,7 +3,7 @@ import { Sprite } from "astro-icon";
 
 interface Props extends astroHTML.JSX.InputHTMLAttributes {
   className?: string;
-  color?: "white";
+  color?: null;
 }
 
 const { className, color, ...props } = Astro.props;
@@ -15,7 +15,7 @@ const { className, color, ...props } = Astro.props;
 >
   <input type="checkbox" class="checkbox__input" hidden {...props} />
   <span class="checkbox__icon">
-    <Sprite name="checkbox" />
+    <Sprite name="check" />
   </span>
   <span class="checkbox__text">
     <slot />

@@ -1,14 +1,20 @@
 .checkbox {
   display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  font-size: 1.6rem;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 1.4rem;
   font-weight: 400;
-  color: $neutral_600;
+  color: $G2;
   cursor: pointer;
 
+  @include breakpoint($xs-bp) {
+    font-size: 1.2rem;
+  }
+
   &.invalid {
-    .checkbox__icon {}
+    .checkbox__icon {
+      border-color: $error;
+    }
   }
 
   &__input {
@@ -21,8 +27,7 @@
     }
 
     &:checked~.checkbox__icon {
-      background-color: $neutral_900;
-      border-color: $neutral_900;
+      border-color: $G1;
 
       svg {
         opacity: 1;
@@ -32,17 +37,19 @@
 
   &__icon {
     flex: none;
-    width: 1.6rem;
-    height: 1.6rem;
-    background-color: $neutral_50;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 0.15rem solid $stroke;
+    background-color: $backgroud;
     border-radius: 0.4rem;
-    border: 0.1rem solid $neutral_400;
-    margin: 0.4rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $white;
     transition: .3s;
+
+    @include hover {
+      border-color: $G1;
+    }
 
     svg {
       transition: opacity 0.3s;
@@ -51,8 +58,12 @@
   }
 
   a {
+    color: $G1;
+    text-decoration: underline;
     transition: .3s;
 
-    @include hover {}
+    @include hover {
+      color: $primary;
+    }
   }
 }

@@ -139,3 +139,13 @@ h6 {
 }
 
 // <--
+
+.block-title {
+  font-size: 4.5rem;
+  line-height: 1.4;
+  font-weight: 500;
+
+  @include breakpoint($xs-bp) {
+    font-size: 2.8rem;
+  }
+}
