@@ -21,7 +21,7 @@ class SectionsNav {
         const href = link.getAttribute("href");
         const id = href && href.split("#").join("");
         const block =
-          href && id && this.wrapper.querySelector<HTMLElement>(href);
+          href && id && document.querySelector<HTMLElement>(href);
 
         if (block) {
           this.items.set(id, {

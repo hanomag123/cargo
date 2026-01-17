@@ -3,10 +3,12 @@ import MainAbout from "@components/_pageMain/MainAbout/MainAbout.astro";
 import MainBanner from "@components/_pageMain/MainBanner/MainBanner.astro";
 import MainServ from "@components/_pageMain/MainServ/MainServ.astro";
 import Feedback from "@components/Feedback/Feedback.astro";
+import PageNav from "@components/PageNav/PageNav.astro";
 import Layout from "src/layouts/Layout.astro";
 ---
 
 <Layout title="Главная">
+  <PageNav />
   <MainBanner />
   <MainServ />
   <MainAbout />

@@ -8,6 +8,7 @@ import VenoBox from "venobox/dist/venobox";
 import { initHeader } from "@components/Header/Header";
 import { initTabController } from "./utils/tabController";
 import { initMainBanner } from "@components/_pageMain/MainBanner/MainBanner";
+import { initSectionsNav } from "./utils/sectionsNav";
 
 Swiper.use([Navigation, Manipulation]);
 
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDropdownItems();
   initSelectItems();
   initTabController();
+  initSectionsNav();
 
   // компоненты
   initHeader();

@@ -1,0 +1,20 @@
+---
+import { Sprite } from "astro-icon";
+---
+
+<div class="page-nav" data-sections-nav data-sections-nav-scroll>
+  <slot>
+    <a href="#main-banner" class="page-nav__btn" data-nav-link>
+      <Sprite name="home" />
+    </a>
+    <a href="#main-serv" class="page-nav__btn" data-nav-link>
+      <Sprite name="truck" />
+    </a>
+    <a href="#main-about" class="page-nav__btn" data-nav-link>
+      <Sprite name="users" />
+    </a>
+    <a href="#feedback" class="page-nav__btn" data-nav-link>
+      <Sprite name="call" />
+    </a>
+  </slot>
+</div>

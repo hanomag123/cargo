@@ -1,0 +1,55 @@
+.page-nav {
+  position: fixed;
+  top: 50%;
+  right: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  z-index: 500;
+  translate: 0 -50%;
+
+  @include breakpoint($xs-bp) {
+    flex-direction: row;
+    top: unset;
+    bottom: 2rem;
+    right: 0;
+    translate: 0 0;
+    width: 100%;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    border: 0.1rem solid $PR2;
+    background-color: $white;
+    transition: .3s;
+
+    @include hover {
+      color: $primary;
+    }
+
+    &._active {
+      width: 5.4rem;
+      height: 5.4rem;
+      color: $white;
+      background-color: $PR2;
+
+      svg {
+        width: 3.4rem;
+        height: 3.4rem;
+        transition: .3s;
+      }
+    }
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+}

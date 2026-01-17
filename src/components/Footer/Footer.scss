@@ -1,4 +1,10 @@
 .footer {
+  margin-bottom: 2rem;
+
+  @include breakpoint($xs-bp) {
+    margin-bottom: 6rem;
+  }
+
   &__wrapper {
     display: flex;
     flex-direction: column;
