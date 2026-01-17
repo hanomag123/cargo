@@ -1,0 +1,132 @@
+.main-about {
+  margin: 9rem 0rem 15rem;
+
+  @include breakpoint($xs-bp) {
+    margin: 12rem 0rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 13.6rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 3.2rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10.2rem;
+
+    @include breakpoint($xs-bp) {
+      flex-direction: column;
+      gap: 3.2rem;
+    }
+  }
+
+  &__head {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    width: 100%;
+    max-width: 57.3rem;
+  }
+
+  &__title {
+    span {
+      color: $PR1;
+    }
+  }
+
+  &__inner {
+    margin-top: 7.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5rem;
+
+    @include breakpoint($xs-bp) {
+      margin: 0;
+      gap: 3.2rem;
+    }
+  }
+
+  &__text {
+    font-size: 3rem;
+    font-weight: 500;
+
+    @include breakpoint($xs-bp) {
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    max-width: 38.5rem;
+
+    @include breakpoint($xs-bp) {
+      max-width: unset;
+    }
+  }
+
+  &-info {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    @include breakpoint($xs-bp) {
+      flex-direction: column;
+    }
+
+    &__item {
+      width: 100%;
+      max-width: 38.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3rem;
+      padding: 3rem;
+      border-radius: 1rem;
+      background-color: $PR1;
+      color: $white;
+
+      @include breakpoint($xs-bp) {
+        padding: 2.4rem 1.6rem;
+        border-radius: 1rem;
+        gap: 2rem;
+      }
+
+      &:nth-child(3n + 2) {
+        background-color: $primary;
+      }
+
+      &:nth-child(3n + 3) {
+        background-color: $PR2;
+      }
+
+      &-title {
+        font-size: 4.5rem;
+        font-weight: 500;
+
+        @include breakpoint($xs-bp) {
+          font-size: 2.8rem;
+        }
+      }
+
+      &-text {
+        font-size: 1.8rem;
+
+        @include breakpoint($xs-bp) {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}

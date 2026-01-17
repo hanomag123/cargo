@@ -1,0 +1,53 @@
+---
+import Chip from "@components/_UI/Chip/Chip.astro";
+import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+import { Sprite } from "astro-icon";
+---
+
+<section class="main-about">
+  <div class="container main-about__wrapper">
+    <div class="main-about__container">
+      <div class="main-about__head">
+        <Chip>О нас</Chip>
+        <h3 class="block-title main-about__title">
+          <span>Cargo-Express</span> ваш надёжный партнёр в грузоперевозках
+        </h3>
+      </div>
+      <div class="main-about__inner">
+        <article class="template main-about__text">
+          Уважаемые клиенты и партнёры! В 2021 году компании CARGO-EXPRESS
+          исполнилось 30 лет. Мы предлагаем широкий спектр профессиональных
+          услуг по срочной доставке грузов по России, странам СНГ и дальнего
+          зарубежья. Основные базы находятся в Санкт-Петербурге, Москве,
+          Иркутске, Калининграде, Южно-Сахалинске и Хельсинки.
+        </article>
+        <DefaultBtn component="a" href="#" class="main-about__btn">
+          О комапании
+          <Sprite name="arrow-up-right" />
+        </DefaultBtn>
+      </div>
+    </div>
+    <div class="main-about-info">
+      <div class="main-about-info__item">
+        <span class="main-about-info__item-title">с 1992 года</span>
+        <p class="main-about-info__item-text">
+          Мы вместе с вами строим надёжные и эффективные решения в сфере
+          грузоперевозок по России и миру.
+        </p>
+      </div>
+      <div class="main-about-info__item">
+        <span class="main-about-info__item-title">200+</span>
+        <p class="main-about-info__item-text">
+          Собственных автомобилей для оперативной и безопасной доставки грузов.
+        </p>
+      </div>
+      <div class="main-about-info__item">
+        <span class="main-about-info__item-title"> 10 000 м²</span>
+        <p class="main-about-info__item-text">
+          Собственных складских площадей для качественного хранения и обработки
+          грузов.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
