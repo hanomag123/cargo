@@ -1,0 +1,36 @@
+---
+import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+import PopupCalc from "@components/Popup/PopupCalc/PopupCalc.astro";
+import { Sprite } from "astro-icon";
+---
+
+<section class="main-banner">
+  <div class="container main-banner__wrapper">
+    <div class="main-banner__container">
+      <h1 class="main-banner__title">
+        Экспресс-доставка грузов по России и&nbsp;международные перевозки
+      </h1>
+      <div class="template main-banner__text">
+        Быстрое и надёжное решение для доставки ваших грузов любого объёма
+        и назначения — от двери до двери, с полным сопровождением и таможенным
+        оформлением.
+      </div>
+    </div>
+    <div class="main-banner__btns">
+      <DefaultBtn type="button" data-open-popup="calc" data-calc-tab="calc">
+        Рассчитать стоимость
+        <Sprite name="arrow-up-right" />
+      </DefaultBtn>
+      <button
+        type="button"
+        class="main-banner__btn"
+        data-open-popup="calc"
+        data-calc-tab="track"
+      >
+        Отследить заказ
+        <Sprite name="arrow-up-right" />
+      </button>
+    </div>
+    <PopupCalc />
+  </div>
+</section>

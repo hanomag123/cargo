@@ -3,12 +3,13 @@ interface ITabBtn {
   el: HTMLElement;
 }
 
-class TabController {
+export class TabController {
   wrapper: HTMLElement;
   btnsContainer: HTMLElement | null;
   tabs: Map<string, HTMLElement> = new Map();
   btns: Map<string, ITabBtn> = new Map();
   calcPos: boolean = false;
+  timeoutId: number | undefined = undefined;
 
   constructor(wrapper: HTMLElement) {
     this.wrapper = wrapper;
@@ -18,8 +19,16 @@ class TabController {
       this.calcPos = true;
     }
 
+    window.addEventListener("resize", () => {
+      setTimeout(() => {
+        this.handleCalcPos();
+      }, 500);
+    });
+
     this.initTabs();
     this.initBtns();
+
+    (this.wrapper as any).tabController = this;
   }
 
   initTabs() {
@@ -68,8 +77,13 @@ class TabController {
     }
   }
 
+  switchTabByKey(key: string) {
+    const tabBtn = this.btns.get(key);
+    if (!tabBtn) return;
+    this.switchTab(tabBtn);
+  }
+
   switchTab(tabBtn: ITabBtn) {
-    const containerRect = this.btnsContainer?.getBoundingClientRect();
 
     this.tabs.forEach((tab, key) => {
       if (key === tabBtn.id) {
@@ -86,22 +100,28 @@ class TabController {
       } else {
         btn.el.classList.add("_tab-active");
       }
+    });
 
-      if (this.calcPos) {
+    this.handleCalcPos();
+  }
+
+  handleCalcPos() {
+    if (!this.calcPos || !this.btnsContainer) return;
+    clearTimeout(this.timeoutId);
+    this.timeoutId = setTimeout(() => {
+      const containerRect = this.btnsContainer?.getBoundingClientRect();
+      if (!containerRect) return;
+
+      this.btns.forEach((btn) => {
+        if (!btn.el.classList.contains("_tab-active")) return;
+
         const rect = btn.el.getBoundingClientRect();
-
-        if (!containerRect) {
-          return;
-        }
-
         this.btnsContainer?.style.setProperty("--w", rect.width + "px");
         this.btnsContainer?.style.setProperty("--h", rect.height + "px");
-        this.btnsContainer?.style.setProperty(
-          "--l",
-          Math.abs(containerRect.left - rect.left) + "px",
-        );
-      }
-    });
+        this.btnsContainer?.style.setProperty("--l", Math.abs(containerRect.left - rect.left) + "px");
+        this.btnsContainer?.style.setProperty("--t", Math.abs(containerRect.top - rect.top) + "px");
+      });
+    }, 50);
   }
 }
 

@@ -1,0 +1,12 @@
+---
+import OrderInfo from "@components/OrderInfo/OrderInfo.astro";
+import Popup from "../Popup.astro";
+import { Sprite } from "astro-icon";
+---
+
+<Popup className="popup-calc" data-popup="calc">
+  <button type="button" class="popup__close" data-close-popup>
+    <Sprite name="close" />
+  </button>
+  <OrderInfo />
+</Popup>

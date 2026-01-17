@@ -6,6 +6,8 @@ import { initDropdownItems } from "./utils/dropdown";
 import { initSelectItems } from "./utils/select";
 import VenoBox from "venobox/dist/venobox";
 import { initHeader } from "@components/Header/Header";
+import { initTabController } from "./utils/tabController";
+import { initMainBanner } from "@components/_pageMain/MainBanner/MainBanner";
 
 Swiper.use([Navigation, Manipulation]);
 
@@ -23,9 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
   formValidateInit(".fv");
   initDropdownItems();
   initSelectItems();
+  initTabController();
 
   // компоненты
   initHeader();
+  initMainBanner();
   // <--
 
   // События

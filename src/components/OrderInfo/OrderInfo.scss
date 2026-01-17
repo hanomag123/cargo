@@ -1,0 +1,209 @@
+.order-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+  padding: 3rem;
+  background-color: $white;
+  border-radius: 1.5rem;
+
+  @include breakpoint($xs-bp) {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    padding: 0;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background-color: $backgroud;
+    border-radius: 1.5rem;
+    width: fit-content;
+    position: relative;
+    grid-area: 1/1/2/2;
+
+    @include breakpoint($xs-bp) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: var(--w, 0px);
+      height: var(--h, 0px);
+      left: var(--l, 0px);
+      top: var(--t, 0px);
+      background-color: $primary;
+      border-radius: 1.5rem;
+      transition: .5s;
+      pointer-events: none;
+    }
+
+    &-btn {
+      position: relative;
+      z-index: 1;
+      padding: 1.6rem 2.4rem;
+      border-radius: 1.5rem;
+      font-size: 2rem;
+      line-height: 1.4;
+      font-weight: 400;
+      transition: .3s;
+
+      @include breakpoint($xs-bp) {
+        padding: 1.6rem 1.2rem;
+        font-size: 1.6rem;
+      }
+
+      @include hover {
+        color: $primary;
+      }
+
+      &._tab-active {
+        color: $white;
+      }
+    }
+  }
+
+  [data-tab] {
+    &:not(._tab-active) {
+      display: none;
+    }
+  }
+
+  &__container {
+    grid-area: 1/1/3/3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &::before {
+      content: "";
+      grid-area: 1/1/2/3;
+      height: 6rem;
+
+      @include breakpoint($xs-bp) {
+        content: none;
+        display: none;
+      }
+    }
+  }
+
+  &-calc {
+    grid-column: span 2;
+
+    &__form {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+
+      @include breakpoint($xs-bp) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3.2rem;
+      }
+
+      &-inputs {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+
+        @include breakpoint($xs-bp) {
+          display: flex;
+          flex-direction: column;
+          gap: 2.4rem;
+        }
+      }
+    }
+  }
+
+  &-track {
+    grid-area: 1/1/3/3;
+    display: grid;
+    grid-template-columns: 97rem 1fr;
+    gap: 5rem;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+    }
+
+    &::before {
+      content: "";
+      grid-area: 1/1/2/3;
+      height: 6rem;
+
+      @include breakpoint($xs-bp) {
+        content: none;
+        display: none;
+      }
+    }
+
+    &__form {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+
+      @include breakpoint($xs-bp) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3.2rem;
+      }
+
+      &-inputs {
+        flex: 1;
+      }
+    }
+
+    &-result {
+      grid-area: 1/2/3/3;
+      font-size: 2rem;
+      line-height: 1.4;
+      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @include breakpoint($xs-bp) {
+        font-size: 1.6rem;
+        gap: 1.6rem;
+      }
+
+      &:not(._active) {
+        display: none;
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @include breakpoint($xs-bp) {
+          gap: 0.8rem;
+        }
+
+        li {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 1.4rem;
+
+          &>span {
+            &:last-child {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}

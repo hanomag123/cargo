@@ -1,8 +1,12 @@
 ---
+import MainBanner from "@components/_pageMain/MainBanner/MainBanner.astro";
+import MainServ from "@components/_pageMain/MainServ/MainServ.astro";
 import Feedback from "@components/Feedback/Feedback.astro";
 import Layout from "src/layouts/Layout.astro";
 ---
 
 <Layout title="Главная">
+  <MainBanner />
+  <MainServ />
   <Feedback />
 </Layout>

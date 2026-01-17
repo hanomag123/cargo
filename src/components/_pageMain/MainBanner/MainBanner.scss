@@ -1,0 +1,111 @@
+.main-banner {
+  padding: 6rem 0rem 0rem;
+
+  @include breakpoint($xs-bp) {
+    padding: 4rem 0rem 0rem;
+    margin-bottom: 26.6rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4.7rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 4.8rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+
+    @include breakpoint($xs-bp) {
+      gap: 2.4rem;
+    }
+  }
+
+  &__title {
+    font-size: 6rem;
+    line-height: 1;
+    font-weight: 500;
+
+    @include breakpoint($xs-bp) {
+      font-size: 3.2rem;
+      line-height: 1.25;
+    }
+  }
+
+  &__text {
+    font-size: 2rem;
+    line-height: 1.4;
+    font-weight: 400;
+    max-width: 90rem;
+
+    @include breakpoint($xs-bp) {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+    display: none;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    font-weight: 400;
+    transition: .3s;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+
+    @include hover {
+      text-decoration: none;
+    }
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  .popup-calc {
+    @media (min-width: 769px) {
+      position: static;
+      opacity: 1;
+      pointer-events: auto;
+      background-color: transparent;
+      padding: 0;
+
+      .popup__container {
+        max-width: unset;
+        padding: 0;
+        background-color: transparent;
+      }
+
+      .popup__bg {
+        display: none;
+      }
+
+      .popup__close {
+        display: none;
+      }
+    }
+  }
+}

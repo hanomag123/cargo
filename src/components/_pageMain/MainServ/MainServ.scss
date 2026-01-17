@@ -1,0 +1,149 @@
+.main-serv {
+  position: relative;
+  padding: 12rem 0rem;
+
+  @include breakpoint($xs-bp) {
+    padding: 4rem 0rem;
+  }
+
+  &__bg {
+    position: absolute;
+    top: -8rem;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: flex-start;
+
+    @include breakpoint($xs-bp) {
+      top: -4rem;
+    }
+
+    &-img {
+      position: sticky;
+      top: -12rem;
+      left: 0;
+      width: 100%;
+
+      @include breakpoint($xs-bp) {
+        top: 2rem;
+      }
+
+      @include img() {
+        object-fit: cover;
+        object-position: center top;
+        width: 100%;
+        height: auto;
+
+        @include breakpoint($xs-bp) {
+          height: 100rem;
+          object-position: calc(100% + 20rem) top;
+        }
+      }
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include breakpoint($xs-bp) {
+      flex-direction: column;
+      gap: 3.2rem;
+    }
+  }
+
+  &__head {
+    position: sticky;
+    top: 8rem;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    width: 100%;
+    max-width: 67.5rem;
+    min-height: calc(100vh - 62rem);
+
+    @include breakpoint($xs-bp) {
+      position: static;
+      min-height: unset;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    max-width: 65rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 5rem;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+  }
+
+  &-card {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 3rem;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(3.4rem);
+    box-shadow: 3rem 3rem 13rem #0000001A, 0rem 3rem 7rem #FFFFFF1A, 0rem 0rem 2rem #FFFFFF33;
+
+    @include breakpoint($xs-bp) {
+      gap: 2rem;
+    }
+
+    &__img {
+      width: 100%;
+      height: 10.3rem;
+      border-radius: 1.6rem;
+      overflow: hidden;
+
+      @include breakpoint($xs-bp) {
+        height: 8rem;
+      }
+
+      @include img() {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    &__title {
+      font-size: 3.4rem;
+      font-weight: 500;
+      color: $PR1;
+
+      @include breakpoint($xs-bp) {
+        font-size: 2.4rem;
+      }
+    }
+
+    &__text {
+      font-size: 2rem;
+
+      @include breakpoint($xs-bp) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

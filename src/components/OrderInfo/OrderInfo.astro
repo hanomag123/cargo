@@ -1,0 +1,97 @@
+---
+import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+import TextInput from "@components/_UI/TextInput/TextInput.astro";
+import { Sprite } from "astro-icon";
+---
+
+<div class="order-info" data-tab-controller="calc">
+  <div class="order-info__nav" data-tab-btns>
+    <button type="button" class="order-info__nav-btn" data-tab-btn="calc"
+      >Рассчитать стоимость</button
+    >
+    <button type="button" class="order-info__nav-btn" data-tab-btn="track"
+      >Отследить заказ</button
+    >
+  </div>
+  <div class="order-info__container">
+    <div class="order-info-calc" data-tab="calc">
+      <form action="#" class="order-info-calc__form" data-action="form-submit">
+        <div class="order-info-calc__form-inputs">
+          <TextInput
+            className="fv"
+            label="Город отправления"
+            placeholder="Москва"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            className="fv"
+            label="Город прибытия"
+            placeholder="Минск"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            className="fv"
+            label="Вес (кг.)"
+            placeholder="0"
+            type="number"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            className="fv"
+            label="Объём (m3)"
+            placeholder="0"
+            type="number"
+            required
+            data-action="required-text"
+          />
+        </div>
+        <DefaultBtn type="submit">
+          Рассчитать
+          <Sprite name="arrow-up-right" />
+        </DefaultBtn>
+      </form>
+    </div>
+
+    <div class="order-info-track" data-tab="track">
+      <form action="#" class="order-info-track__form" data-action="form-submit">
+        <div class="order-info-track__form-inputs">
+          <TextInput
+            className="fv"
+            label="Номер накладной"
+            placeholder="00000000000"
+            required
+            data-action="required-text"
+          />
+        </div>
+        <DefaultBtn type="submit">
+          Отследить
+          <Sprite name="arrow-up-right" />
+        </DefaultBtn>
+      </form>
+      <div class="order-info-track-result _active">
+        <span class="order-info-track-result__title">Результат расчета:</span>
+        <ul class="order-info-track-result__info">
+          <li>
+            <span>Последние перемещения:</span>
+            <span>03. 11. 2025 09:12</span>
+          </li>
+          <li>
+            <span>Текущий статус:</span>
+            <span>В пути</span>
+          </li>
+          <li>
+            <span>Дата отпарвления:</span>
+            <span>10. 10. 2025</span>
+          </li>
+          <li>
+            <span>Ожидаемая дата доставки:</span>
+            <span>01. 11. 2025</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

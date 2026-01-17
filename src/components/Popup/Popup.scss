@@ -7,7 +7,8 @@
   height: 100%;
   overflow: auto;
   display: grid;
-  background-color: #02011880;
+  background-color: rgba(18, 30, 76, 0.45);
+  padding: 2rem;
   transition: .5s;
 
   &:not(._popup-open) {
@@ -26,14 +27,15 @@
   &__container {
     position: relative;
     width: 100%;
-    max-width: 65.8rem;
+    max-width: 65.5rem;
     margin: auto;
+    padding: 3rem;
+    border-radius: 2rem;
     background-color: $white;
-    padding: 6rem 4rem 4rem;
-    transition: .5s;
 
     @include breakpoint($xs-bp) {
-      padding: 4rem 1.6rem 2rem;
+      padding: 3rem 2rem;
+      border-radius: 1.6rem;
     }
   }
 
@@ -41,17 +43,24 @@
     position: absolute;
     top: 1.6rem;
     right: 1.6rem;
-    width: 4rem;
-    height: 4rem;
-    color: $neutral_400;
+    width: 3.2rem;
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: .3s;
 
+    @include breakpoint($xs-bp) {
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
     @include hover {
-      color: $orange_500;
+      color: $primary;
     }
   }
 }
 
-@import "./PopupAsk/PopupAsk.scss";
-@import "./PopupOrder/PopupOrder.scss";
-@import "./PopupDeliv/PopupDeliv.scss";
+@import "./PopupCalc/PopupCalc.scss";
