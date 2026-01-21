@@ -1,0 +1,170 @@
+---
+import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+import { Sprite } from "astro-icon";
+---
+
+<section class="career">
+  <div class="container career__wrapper">
+    <h1 class="page-title career__title">Стройте карьеру с Cargo-Express</h1>
+    <div class="career__container" data-tab-controller>
+      <div
+        class="swiper career-nav"
+        data-tab-btns
+        data-swiper-init
+        data-props='{"slidesPerView": "auto"}'
+      >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="#" class="career-nav__item _tab-active" data-tab-btn="ALL">
+              Все <sup>3</sup>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#" class="career-nav__item" data-tab-btn="1">
+              Логистика и транспортировка <sup>1</sup>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#" class="career-nav__item" data-tab-btn="2">
+              Складское хозяйство <sup>1</sup>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#" class="career-nav__item" data-tab-btn="3">
+              Закупки и снабжение <sup>1</sup>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="career__list">
+        <div
+          class="career-item"
+          data-dropdown
+          data-dropdown-group="career"
+          data-tab="1"
+        >
+          <div class="career-item__head">
+            <h4 class="career-item__title">Водитель-экспедитор</h4>
+            <span class="career-item__region">Москва</span>
+            <DefaultBtn
+              type="button"
+              class="career-item__btn"
+              data-dropdown-btn
+            >
+              <Sprite name="plus" />
+            </DefaultBtn>
+          </div>
+          <div class="career-item__drop">
+            <div class="career-item__container">
+              <div class="career-item__info">
+                <h5 class="career-item__info-title">Условия труда</h5>
+                <p class="career-item__info-text">
+                  Работа на современных автомобилях, полный социальный пакет,
+                  обучение, достойная зарплата.
+                </p>
+              </div>
+              <div class="career-item__info">
+                <h5 class="career-item__info-title">Требования к кандидатам</h5>
+                <p class="career-item__info-text">
+                  Опыт работы от 2 лет, ответственность, внимательность, умение
+                  быстро принимать решения, желание развиваться.
+                </p>
+              </div>
+              <div class="career-item__info">
+                <h5 class="career-item__info-title">Зарплата</h5>
+                <p class="career-item__info-text">
+                  30 000 - 60 000 рублей в месяц (зависит от опыта).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="career-item"
+          data-dropdown
+          data-dropdown-group="career"
+          data-tab="2"
+        >
+          <div class="career-item__head">
+            <h4 class="career-item__title">Кладовщик-комплектовщик</h4>
+            <span class="career-item__region">Москва</span>
+            <DefaultBtn
+              type="button"
+              class="career-item__btn"
+              data-dropdown-btn
+            >
+              <Sprite name="plus" />
+            </DefaultBtn>
+          </div>
+          <div class="career-item__drop">
+            <div class="career-item__container">
+              <div class="career-item__info">
+                <h5 class="career-item__info-title">Условия труда</h5>
+                <p class="career-item__info-text">
+                  Работа на современных автомобилях, полный социальный пакет,
+                  обучение, достойная зарплата.
+                </p>
+              </div>
+              <div class="career-item__info">
+                <h5 class="career-item__info-title">Требования к кандидатам</h5>
+                <p class="career-item__info-text">
+                  Опыт работы от 2 лет, ответственность, внимательность, умение
+                  быстро принимать решения, желание развиваться.
+                </p>
+              </div>
+              <div class="career-item__info">
+                <h5 class="career-item__info-title">Зарплата</h5>
+                <p class="career-item__info-text">
+                  30 000 - 60 000 рублей в месяц (зависит от опыта).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="career-item"
+          data-dropdown
+          data-dropdown-group="career"
+          data-tab="3"
+        >
+          <div class="career-item__head">
+            <h4 class="career-item__title">Специалист по закупкам</h4>
+            <span class="career-item__region">Москва</span>
+            <DefaultBtn
+              type="button"
+              class="career-item__btn"
+              data-dropdown-btn
+            >
+              <Sprite name="plus" />
+            </DefaultBtn>
+          </div>
+          <div class="career-item__drop">
+            <div class="career-item__container">
+              <div class="career-item__info">
+                <h5 class="career-item__info-title">Условия труда</h5>
+                <p class="career-item__info-text">
+                  Работа на современных автомобилях, полный социальный пакет,
+                  обучение, достойная зарплата.
+                </p>
+              </div>
+              <div class="career-item__info">
+                <h5 class="career-item__info-title">Требования к кандидатам</h5>
+                <p class="career-item__info-text">
+                  Опыт работы от 2 лет, ответственность, внимательность, умение
+                  быстро принимать решения, желание развиваться.
+                </p>
+              </div>
+              <div class="career-item__info">
+                <h5 class="career-item__info-title">Зарплата</h5>
+                <p class="career-item__info-text">
+                  30 000 - 60 000 рублей в месяц (зависит от опыта).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

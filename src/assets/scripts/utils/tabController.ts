@@ -1,4 +1,4 @@
-interface ITabBtn {
+interface ITabEl {
   id: string;
   el: HTMLElement;
 }
@@ -6,8 +6,8 @@ interface ITabBtn {
 export class TabController {
   wrapper: HTMLElement;
   btnsContainer: HTMLElement | null;
-  tabs: Map<string, HTMLElement> = new Map();
-  btns: Map<string, ITabBtn> = new Map();
+  tabs: ITabEl[] = [];
+  btns: Map<string, ITabEl> = new Map();
   calcPos: boolean = false;
   timeoutId: number | undefined = undefined;
 
@@ -37,7 +37,10 @@ export class TabController {
       .forEach((container) => {
         const id = container.getAttribute("data-tab");
         if (id) {
-          this.tabs.set(id, container);
+          this.tabs.push({
+            id: id,
+            el: container,
+          });
         }
       });
   }
@@ -45,15 +48,15 @@ export class TabController {
   initBtns() {
     const container = this.btnsContainer || this.wrapper;
 
-    let firstBtn: ITabBtn | null = null;
-    let activeBtn: ITabBtn | null = null;
+    let firstBtn: ITabEl | null = null;
+    let activeBtn: ITabEl | null = null;
     container
       .querySelectorAll<HTMLElement>("[data-tab-btn]")
       .forEach((btn, index) => {
         const id = btn.getAttribute("data-tab-btn");
 
         if (id) {
-          const tabBtn: ITabBtn = {
+          const tabBtn: ITabEl = {
             id,
             el: btn,
           };
@@ -63,11 +66,12 @@ export class TabController {
             firstBtn = tabBtn;
           }
 
-          btn.addEventListener("click", this.switchTab.bind(this, tabBtn));
+          btn.addEventListener("click", this.switchTab.bind(this, id));
 
           if (btn.classList.contains("_tab-active")) {
+            console.log(tabBtn);
             activeBtn = tabBtn;
-            this.switchTab(tabBtn);
+            this.switchTab(id);
           }
         }
       });
@@ -77,28 +81,30 @@ export class TabController {
     }
   }
 
-  switchTabByKey(key: string) {
-    const tabBtn = this.btns.get(key);
-    if (!tabBtn) return;
-    this.switchTab(tabBtn);
-  }
+  switchTab(id: string) {
+    if (id == "ALL") {
+      this.btns.forEach((btn) => {
+        btn.el.classList.add("_tab-active");
+      });
+      this.tabs.forEach((tab) => {
+        tab.el.classList.add("_tab-active");
+      });
+      return;
+    }
 
-  switchTab(tabBtn: ITabBtn) {
+    this.btns.forEach((btn) => {
+      btn.el.classList.remove("_tab-active");
 
-    this.tabs.forEach((tab, key) => {
-      if (key === tabBtn.id) {
-        tab.classList.add("_tab-active");
-      } else {
-        tab.classList.remove("_tab-active");
+      if (btn.id === id) {
+        btn.el.classList.add("_tab-active");
       }
     });
 
-    this.btns.forEach((btn) => {
-      if (btn !== tabBtn) {
-        btn.el.classList.remove("_tab-active");
-        return;
+    this.tabs.forEach((tab) => {
+      if (tab.id === id) {
+        tab.el.classList.add("_tab-active");
       } else {
-        btn.el.classList.add("_tab-active");
+        tab.el.classList.remove("_tab-active");
       }
     });
 
