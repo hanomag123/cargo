@@ -542,6 +542,9 @@
       text-align: left;
       transition: .3s;
       border-right: 0.2rem solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       @include breakpoint($xs-bp) {
         padding: 1.5rem 2rem 1.5rem 0rem;
@@ -550,6 +553,16 @@
 
       @include hover {
         border-color: $PR1;
+      }
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+        display: none;
+
+        @include breakpoint($xs-bp) {
+          display: block;
+        }
       }
     }
 

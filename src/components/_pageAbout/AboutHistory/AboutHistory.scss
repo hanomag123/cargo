@@ -1,0 +1,218 @@
+.about-history {
+  margin: 15rem 0rem;
+  overflow: hidden;
+
+  @include breakpoint($xs-bp) {
+    margin: 12rem 0rem;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 81rem;
+    gap: 7rem;
+    grid-template-areas:
+      "title imgs"
+      "swiper imgs"
+      "line line";
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+    }
+  }
+
+  &__title {
+    grid-area: title;
+  }
+
+  &__swiper {
+    grid-area: swiper;
+    width: 100%;
+    height: fit-content;
+    margin-top: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 3.2rem;
+    }
+
+    .swiper {
+      flex: 1;
+    }
+
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+
+    .swiper-slide {
+      height: auto;
+    }
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 1.2rem;
+    }
+
+    &__year {
+      font-size: 3.4rem;
+      font-weight: 500;
+
+      @include breakpoint($xs-bp) {
+        font-size: 2.4rem;
+      }
+    }
+
+    &__text {
+      font-size: 2rem;
+      line-height: 1.4;
+      font-weight: 400;
+
+      @include breakpoint($xs-bp) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 1.2rem;
+    }
+
+    &-btn {
+      padding: 0rem;
+      min-height: unset;
+      width: 5.4rem;
+      height: 5.4rem;
+      border-radius: 50%;
+
+      @include breakpoint($xs-bp) {
+        width: 4rem;
+        height: 4rem;
+      }
+
+      svg {
+        width: 3.4rem;
+        height: 3.4rem;
+
+        @include breakpoint($xs-bp) {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+  }
+
+  &__img-swiper {
+    grid-area: imgs;
+    height: 100%;
+    min-height: 50rem;
+
+    @include breakpoint($xs-bp) {
+      min-height: unset;
+      height: 20.6rem;
+    }
+
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+
+    .swiper-slide {
+      height: auto;
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+
+      @include img() {
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &-line {
+    position: relative;
+    grid-area: line;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint($xs-bp) {
+      transition: .6s;
+      width: 160rem;
+      translate: calc((160rem - 4rem) / var(--count) * (var(--count) * var(--progress, 0)) * -1) 0;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      translate: 0 -50%;
+      border-bottom: 0.1rem solid $stroke;
+    }
+
+    &::after {
+      border-color: $G1;
+      left: 2rem;
+      width: calc((100% - 4rem) * var(--progress, 0));
+      transition: .6s;
+    }
+
+    .swiper-pagination-bullet {
+      position: relative;
+      z-index: 1;
+      flex: none;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      border: 0.1rem solid $G1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .6s;
+      cursor: pointer;
+
+      &.swiper-pagination-bullet-active {
+        ~.swiper-pagination-bullet {
+          border-color: $stroke;
+
+          &::before {
+            background-color: $stroke;
+          }
+        }
+      }
+
+      &::before {
+        content: "";
+        width: 2rem;
+        height: 2rem;
+        background-color: $G1;
+        border-radius: 50%;
+        transition: .6s;
+      }
+    }
+  }
+}
