@@ -5,6 +5,7 @@
 @import "@components/_UI/TextInput/TextInput.scss";
 @import "@components/_UI/Chip/Chip.scss";
 @import "@components/_UI/Checkbox/Checkbox.scss";
+@import "@components/_UI/Breadcrumbs/Breadcrumbs.scss";
 
 // general
 @import "@components/Header/Header.scss";
@@ -18,3 +19,6 @@
 @import "@components/_pageMain/MainBanner/MainBanner.scss";
 @import "@components/_pageMain/MainServ/MainServ.scss";
 @import "@components/_pageMain/MainAbout/MainAbout.scss";
+
+// page about
+@import "@components/_pageAbout/AboutHead/AboutHead.scss";

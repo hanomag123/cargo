@@ -1,0 +1,16 @@
+---
+import AboutHead from "@components/_pageAbout/AboutHead/AboutHead.astro";
+import Breadcrumbs from "@components/_UI/Breadcrumbs/Breadcrumbs.astro";
+import Feedback from "@components/Feedback/Feedback.astro";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout title="О компании">
+  <div class="breadcrumbs-container">
+    <div class="container">
+      <Breadcrumbs items={["Главная", "О компании"]} />
+    </div>
+  </div>
+  <AboutHead />
+  <Feedback />
+</Layout>

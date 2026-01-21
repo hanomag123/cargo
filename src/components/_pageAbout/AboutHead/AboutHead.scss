@@ -1,0 +1,86 @@
+.about-head {
+  margin: 10rem 0rem 14rem;
+
+  @include breakpoint($xs-bp) {
+    margin: 4rem 0rem 12rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 4rem;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 87rem;
+    gap: 11.5rem;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3.2rem;
+  }
+
+  &__subtitle {
+    max-width: 38.5rem;
+  }
+
+  &__text {
+    font-size: 2rem;
+    line-height: 1.4;
+    font-weight: 400;
+
+    @include breakpoint($xs-bp) {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .main-about-info__item {
+      max-width: 100%;
+      background-color: $primary;
+
+      &:nth-child(4n + 2) {
+        background-color: $PR2;
+      }
+
+      &:nth-child(4n + 3) {
+        background-color: $PR2;
+      }
+
+      @include breakpoint($xs-bp) {
+        &:nth-child(2n + 1) {
+          background-color: $primary;
+        }
+
+        &:nth-child(2n + 2) {
+          background-color: $PR2;
+        }
+      }
+    }
+  }
+}
