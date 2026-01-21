@@ -1,0 +1,163 @@
+.contacts {
+  margin: 10rem 0rem 15rem;
+
+  @include breakpoint($xs-bp) {
+    margin: 2.4rem 0rem 12rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 4rem;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 52rem 1fr;
+    gap: 2rem;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 1.2rem;
+    }
+  }
+
+  &__map {
+    width: 100%;
+    height: 100%;
+    min-height: 50rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    background-color: $G3;
+
+    @include breakpoint($xs-bp) {
+      height: 52.8rem;
+    }
+
+    &[data-tab] {
+      &:not(._tab-active) {
+        display: none;
+      }
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 3rem;
+    border-radius: 2rem;
+    background-color: $white;
+    border: 0.1rem solid $G4;
+    transition: .3s;
+
+    &[data-tab-btn] {
+      @include breakpoint($xs-bp) {
+        gap: 0rem;
+      }
+
+      &:not(._tab-active) {
+        @include breakpoint($xs-bp) {
+          .contacts-item__drop {
+            grid-template-rows: 0fr;
+            padding-top: 0;
+            opacity: 0;
+            pointer-events: none;
+          }
+        }
+      }
+
+      &._tab-active {
+        background-color: $G4;
+
+        .contacts-item__head {
+          svg {
+            scale: 1 -1;
+          }
+        }
+      }
+    }
+
+    &__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        transition: scale .3s;
+        display: none;
+
+        @include breakpoint($xs-bp) {
+          display: block;
+        }
+      }
+    }
+
+    &__title {
+      font-size: 2rem;
+      font-weight: 400;
+
+      @include breakpoint($xs-bp) {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__drop {
+      display: grid;
+      grid-template-rows: 1fr;
+      transition: .5s;
+      overflow: hidden;
+
+      @include breakpoint($xs-bp) {
+        padding-top: 1.6rem;
+      }
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      min-height: 0;
+    }
+
+    &__text {
+      font-size: 3rem;
+      font-weight: 500;
+
+      @include breakpoint($xs-bp) {
+        font-size: 2rem;
+      }
+
+      &:is(a) {
+        transition: .3s;
+
+        @include hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+}

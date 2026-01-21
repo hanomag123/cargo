@@ -1,0 +1,16 @@
+---
+import Contacts from "@components/_pageContacts/Contacts/Contacts.astro";
+import Breadcrumbs from "@components/_UI/Breadcrumbs/Breadcrumbs.astro";
+import Feedback from "@components/Feedback/Feedback.astro";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout title="Контакты">
+  <div class="breadcrumbs-container">
+    <div class="container">
+      <Breadcrumbs items={["Главная", "Контакты"]} />
+    </div>
+  </div>
+  <Contacts />
+  <Feedback />
+</Layout>

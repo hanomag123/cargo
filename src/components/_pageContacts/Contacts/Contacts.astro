@@ -1,0 +1,62 @@
+---
+import { Sprite } from "astro-icon";
+---
+
+<section class="contacts">
+  <div class="container contacts__wrapper">
+    <h1 class="page-title contacts__title">Контакты</h1>
+    <div class="contacts__container" data-tab-controller>
+      <div class="contacts__list" data-tab-btns>
+        <div class="contacts-item _tab-active" data-tab-btn="1">
+          <div class="contacts-item__head">
+            <h3 class="contacts-item__title">Санкт-Петербург</h3>
+            <Sprite name="chevron-down" />
+          </div>
+          <div class="contacts-item__drop">
+            <div class="contacts-item__container">
+              <span class="contacts-item__text">ул. Штурманская 3/5</span>
+              <a href="tel:88005504550" class="contacts-item__text"
+                >8 (800) 550-4-550</a
+              >
+              <a
+                href="mailto:offer@cargo-express.ru"
+                class="contacts-item__text">offer@cargo-express.ru</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="contacts-item" data-tab-btn="2">
+          <div class="contacts-item__head">
+            <h3 class="contacts-item__title">Москва</h3>
+            <Sprite name="chevron-down" />
+          </div>
+          <div class="contacts-item__drop">
+            <div class="contacts-item__container">
+              <span class="contacts-item__text"
+                >ул. Иловайская, д. 3, стр. 18</span
+              >
+              <a href="tel:84951281200" class="contacts-item__text"
+                >+7 (495) 128-12-00</a
+              >
+              <a href="mailto:spb@cargo-express.ru" class="contacts-item__text"
+                >spb@cargo-express.ru</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contacts__maps">
+        <div class="contacts__map _tab-active" data-tab="1">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A49b27f53121777dbd632e676625ad9885deb7e270c9feb47e8e21f2e2713f473&source=constructor"
+            frameborder="0"></iframe>
+        </div>
+        <div class="contacts__map" data-tab="2">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A0ba4645edafd1979d079daaaf83e76646fb6eb5c9716a6cddc92bb3a9b161221&source=constructor"
+            frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
