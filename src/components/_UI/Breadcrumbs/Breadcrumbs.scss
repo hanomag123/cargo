@@ -7,6 +7,10 @@
 
   &-container {
     margin: 3rem 0rem 10rem;
+
+    @include breakpoint($xs-bp) {
+      margin: 2.4rem 0rem;
+    }
   }
 
   &__link {

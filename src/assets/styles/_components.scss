@@ -14,6 +14,7 @@
 @import "@components/Feedback/Feedback.scss";
 @import "@components/OrderInfo/OrderInfo.scss";
 @import "@components/PageNav/PageNav.scss";
+@import "@components/_UI/Doc/Doc.scss";
 
 // page main
 @import "@components/_pageMain/MainBanner/MainBanner.scss";
@@ -30,3 +31,6 @@
 
 // page contacts
 @import "@components/_pageContacts/Contacts/Contacts.scss";
+
+// page docs
+@import "@components/_pageDocs/Docs/Docs.scss";

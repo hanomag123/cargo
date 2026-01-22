@@ -1,27 +1,17 @@
 ---
 import { Sprite } from "astro-icon";
+import DefaultBtn from "../DefaultBtn/DefaultBtn.astro";
 
-interface Props {
-  type?: string | null;
-}
+interface Props {}
 
-const { type = "./img/pdf.svg" } = Astro.props;
+const {} = Astro.props;
 ---
 
 <a href="#" class="doc">
-  <span class="doc__inner">
-    {
-      type && (
-        <span class="doc__type">
-          <img src={type} alt="pdf" />
-        </span>
-      )
-    }
-    <span class="doc__title">
-      <slot />
-    </span>
-  </span>
-  <span class="doc__icon">
+  <DefaultBtn component="span" color="white" class="doc__icon">
     <Sprite name="download" />
+  </DefaultBtn>
+  <span class="doc__text">
+    <slot />
   </span>
 </a>

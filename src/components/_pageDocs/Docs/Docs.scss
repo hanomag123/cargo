@@ -1,0 +1,63 @@
+.docs {
+  margin: 10rem 0rem 15rem;
+
+  @include breakpoint($xs-bp) {
+    margin: 2.4rem 0rem 12rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 4rem;
+    }
+  }
+
+  &__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 89rem 1fr;
+    gap: 3.5rem;
+    align-items: flex-start;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 2.4rem;
+    }
+  }
+
+  &__img {
+    position: sticky;
+    top: 10rem;
+    right: 0;
+    width: 100%;
+    aspect-ratio: 675/313;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    @include breakpoint($xs-bp) {
+      position: static;
+    }
+
+    @include img() {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

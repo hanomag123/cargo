@@ -1,0 +1,16 @@
+---
+import Docs from "@components/_pageDocs/Docs/Docs.astro";
+import Breadcrumbs from "@components/_UI/Breadcrumbs/Breadcrumbs.astro";
+import Feedback from "@components/Feedback/Feedback.astro";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout title="Документы">
+  <div class="breadcrumbs-container">
+    <div class="container">
+      <Breadcrumbs items={["Главная", "Документы"]} />
+    </div>
+  </div>
+  <Docs />
+  <Feedback />
+</Layout>

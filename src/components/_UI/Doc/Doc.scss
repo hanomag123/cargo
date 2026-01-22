@@ -1,59 +1,47 @@
 .doc {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  font-size: 1.6rem;
+  justify-content: flex-start;
+  gap: 1.8rem;
+  font-size: 1.8rem;
   font-weight: 400;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
   transition: .3s;
-
-  @include hover {
-    text-decoration: none;
-    color: $primary-hover;
-  }
 
   @include breakpoint($xs-bp) {
     font-size: 1.4rem;
+    gap: 1.2rem;
   }
 
-  &__inner {
-    display: flex;
-    align-items: center;
-    gap: 2.4rem;
-
-    @include breakpoint($xs-bp) {
-      gap: 1.6rem;
-    }
-  }
-
-  &__type {
-    flex: none;
-    width: 3rem;
-    height: 3rem;
-
-    @include img() {
-      object-fit: contain;
-      object-position: center;
-      width: 100%;
-      height: 100%;
+  @include hover {
+    .doc__icon {
+      background-color: $G1;
+      border-color: $G1;
+      color: $white;
     }
   }
 
   &__icon {
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: none;
+    min-height: unset;
+    width: 4.4rem;
+    height: 4.4rem;
+    padding: 0;
     border-radius: 50%;
-    background: linear-gradient(90deg, #C2B4E3, #8B8CC1);
-    margin-left: auto;
-    color: $text;
+    border-color: $PR2;
+
+    @include breakpoint($xs-bp) {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
 
     svg {
       width: 2.4rem;
       height: 2.4rem;
+
+      @include breakpoint($xs-bp) {
+        width: 2rem;
+        height: 2rem;
+      }
     }
   }
 }
