@@ -1,4 +1,5 @@
 // template
+@import "@components/Template/Template.scss";
 
 // UI
 @import "@components/_UI/DefaultBtn/DefaultBtn.scss";
@@ -34,3 +35,6 @@
 
 // page docs
 @import "@components/_pageDocs/Docs/Docs.scss";
+
+// page services
+@import "@components/_pageServices/Services/Services.scss";

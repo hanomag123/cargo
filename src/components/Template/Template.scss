@@ -11,15 +11,10 @@
 
   h1,
   h2,
-  h3 {
-    line-height: 1.1;
-    font-weight: 700;
-  }
-
+  h3,
   h4,
   h5,
   h6 {
-    line-height: 1.1;
     font-weight: 500;
   }
 
@@ -133,7 +128,7 @@
   blockquote {
     position: relative;
     padding: 4.8rem 1.6rem;
-    background-color: $neutral_200;
+    background-color: $G4;
     border-radius: 1.6rem;
 
     &::before,
@@ -181,6 +176,6 @@
   .table {
     overflow-x: auto;
     padding-bottom: 0.4rem;
-    @include scrollbar(0.4rem, $neutral_200, $orange_500, 0.4rem);
+    @include scrollbar(0.4rem, transparent, $primary, 0.4rem);
   }
 }

@@ -1,0 +1,63 @@
+---
+import Services from "@components/_pageServices/Services/Services.astro";
+import Breadcrumbs from "@components/_UI/Breadcrumbs/Breadcrumbs.astro";
+import Feedback from "@components/Feedback/Feedback.astro";
+import PageNav from "@components/PageNav/PageNav.astro";
+import { Sprite } from "astro-icon";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout title="Услуги">
+  <PageNav>
+    <div
+      class="swiper"
+      data-swiper-init
+      data-props='{"slidesPerView": "auto", "centeredSlides": true, "freeMode": true}'
+    >
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href="#service-1" class="page-nav__btn" data-nav-link>
+            <Sprite name="truck" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-2" class="page-nav__btn" data-nav-link>
+            <Sprite name="plane" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-3" class="page-nav__btn" data-nav-link>
+            <Sprite name="globe-uk" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-4" class="page-nav__btn" data-nav-link>
+            <Sprite name="maybe" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-5" class="page-nav__btn" data-nav-link>
+            <Sprite name="truck-speed" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-6" class="page-nav__btn" data-nav-link>
+            <Sprite name="flag" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-7" class="page-nav__btn" data-nav-link>
+            <Sprite name="package" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </PageNav>
+  <div class="breadcrumbs-container">
+    <div class="container">
+      <Breadcrumbs items={["Главная", "Услуги"]} />
+    </div>
+  </div>
+  <Services />
+  <Feedback />
+</Layout>

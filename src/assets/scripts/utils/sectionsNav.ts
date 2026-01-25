@@ -1,3 +1,6 @@
+import type { Swiper } from "swiper/types";
+import { clamp } from "./services";
+
 interface INavItem {
   link: HTMLElement;
   block: HTMLElement;
@@ -7,7 +10,7 @@ class SectionsNav {
   observer: IntersectionObserver;
   items: Map<string, INavItem> = new Map();
   offset = 0;
-  private rafId: number | null = null;
+  swiper: Swiper | null = null;
 
   constructor(public wrapper: HTMLElement) {
     this.offset = this.wrapper.dataset.offset
@@ -38,6 +41,11 @@ class SectionsNav {
 
     if (this.wrapper.hasAttribute("data-sections-nav-scroll")) {
       this.initScrollHandler();
+    }
+
+    const swiperContainer = this.wrapper.querySelector<HTMLElement>(".swiper");
+    if (swiperContainer && (swiperContainer as any).swiper) {
+      this.swiper = (swiperContainer as any).swiper as Swiper;
     }
   }
 
@@ -129,6 +137,13 @@ class SectionsNav {
         "--scroll-progress",
         scrollProgress.toString(),
       );
+
+      if (this.swiper) {
+        if (this.swiper.progress !== scrollProgress) {
+          this.swiper.setProgress(scrollProgress);
+        }
+      }
+
       requestAnimationFrame(update);
     };
 

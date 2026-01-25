@@ -69,7 +69,6 @@ export class TabController {
           btn.addEventListener("click", this.switchTab.bind(this, id));
 
           if (btn.classList.contains("_tab-active")) {
-            console.log(tabBtn);
             activeBtn = tabBtn;
             this.switchTab(id);
           }
