@@ -7,6 +7,8 @@
 @import "@components/_UI/Chip/Chip.scss";
 @import "@components/_UI/Checkbox/Checkbox.scss";
 @import "@components/_UI/Breadcrumbs/Breadcrumbs.scss";
+@import "@components/_UI/Select/Select.scss";
+@import "@components/_UI/Radio/Radio.scss";
 
 // general
 @import "@components/Header/Header.scss";
@@ -38,3 +40,6 @@
 
 // page services
 @import "@components/_pageServices/Services/Services.scss";
+
+// page calc
+@import "@components/_pageCalc/Calc/Calc.scss";

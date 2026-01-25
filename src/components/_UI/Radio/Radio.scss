@@ -1,36 +1,69 @@
 .radio {
-  .checkbox__input {
-    &:checked {
-      ~.checkbox__icon {
-        background-color: $neutral_50;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 2rem;
+  line-height: 1.4;
+  font-weight: 400;
+  cursor: pointer;
 
-        &::after {
-          opacity: 1;
-        }
+  @include breakpoint($xs-bp) {
+    font-size: 1.6rem;
+  }
+
+  &.invalid {
+    .radio__icon {
+      border-color: $error;
+    }
+  }
+
+  &__input {
+    &:disabled~.radio__icon {
+      opacity: 0.5;
+    }
+
+    &:disabled~.radio__text {
+      opacity: 0.5;
+    }
+
+    &:checked~.radio__icon {
+      &::after {
+        opacity: 1;
       }
     }
   }
 
-  .checkbox__icon {
-    position: relative;
-    width: 1.6rem;
-    height: 1.6rem;
+  &__icon {
+    flex: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-top: 0.2rem;
+    border: 0.15rem solid $stroke;
+    background-color: $backgroud;
     border-radius: 50%;
-    border: 0.1rem solid $neutral_700;
-    background-color: $neutral_50;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: .3s;
 
     &::after {
       content: "";
-      position: absolute;
       width: 1rem;
       height: 1rem;
       border-radius: 50%;
-      background-color: $neutral_700;
+      background-color: $G1;
       opacity: 0;
       transition: .3s;
+    }
+  }
+
+  a {
+    color: $G1;
+    text-decoration: underline;
+    transition: .3s;
+
+    @include hover {
+      color: $primary;
     }
   }
 }

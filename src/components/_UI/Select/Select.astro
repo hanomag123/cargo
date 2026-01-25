@@ -2,35 +2,31 @@
 import { Sprite } from "astro-icon";
 
 interface Props extends astroHTML.JSX.HTMLAttributes {
+  label?: string;
   className?: string;
   placeholder?: string;
   inputProps?: astroHTML.JSX.InputHTMLAttributes;
 }
 
-const { className, placeholder, inputProps = {}, ...rest } = Astro.props;
+const { className, placeholder, label, inputProps = {}, ...rest } = Astro.props;
 ---
 
 <div class="select" class:list={[className]} {...rest}>
-  <input
-    type="text"
-    hidden
-    data-input
-    {...inputProps}
-    {...inputProps.required && { "data-action": "required-text" }}
-  />
-
-  <button type="button" class="text-btn select__btn" data-dropdown-btn>
-    <span class="select__btn-text" data-btn-text>
-      {placeholder}
-    </span>
-    <span class="select__btn-icon">
-      <Sprite name="chevron-down" />
-    </span>
-  </button>
-
+  {label && <span class="select__label">{label}</span>}
   <div class="select__container">
-    <div class="select__inner">
-      <slot />
+    <button type="button" class="text-btn select__btn" data-dropdown-btn>
+      <span class="select__btn-text" data-btn-text>
+        {placeholder}
+      </span>
+      <span class="select__btn-icon">
+        <Sprite name="chevron-down" />
+      </span>
+    </button>
+
+    <div class="select__drop">
+      <div class="select__content">
+        <slot />
+      </div>
     </div>
   </div>
 </div>
@@ -38,4 +34,5 @@ const { className, placeholder, inputProps = {}, ...rest } = Astro.props;
 <!-- <label class="text-btn select-item" data-item>
   <input hidden type="radio" name="1" />
   <span class="select-item__text" data-text></span>
+  <span class="select-item__icon"></span>
 </label> -->

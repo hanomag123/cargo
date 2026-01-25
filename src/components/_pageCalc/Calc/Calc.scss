@@ -1,0 +1,249 @@
+.calc {
+  margin: 10rem 0rem 15rem;
+
+  @include breakpoint($xs-bp) {
+    margin: 2.4rem 0rem 12rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+
+    @include breakpoint($xs-bp) {
+      gap: 4rem;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 52rem;
+    gap: 2rem;
+
+    @include breakpoint($xs-bp) {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5rem;
+    padding: 3rem;
+    background-color: $white;
+    box-shadow: 3rem 3rem 13rem #0000001A, 0rem 3rem 7rem #FFFFFF1A;
+    border-radius: 1.6rem;
+
+    @include breakpoint($xs-bp) {
+      padding: 3rem 2rem;
+      gap: 3.2rem;
+      align-items: stretch;
+    }
+
+    &__box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      @include breakpoint($xs-bp) {
+        gap: 1.8rem;
+      }
+
+      &-title {
+        font-size: 3.4rem;
+        font-weight: 500;
+
+        @include breakpoint($xs-bp) {
+          font-size: 2.4rem;
+        }
+      }
+    }
+
+    &__inputs {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 3rem;
+
+      @include breakpoint($xs-bp) {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+      }
+
+      .text-input,
+      .select {
+        grid-column: span 3;
+      }
+
+      .col-5 {
+        grid-column: span 5;
+      }
+
+      .col-2 {
+        grid-column: span 2;
+      }
+    }
+
+    &__row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 3rem 5rem;
+
+      @include breakpoint($xs-bp) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.8rem;
+      }
+    }
+  }
+
+  &-callback {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3.2rem;
+    padding: 3rem;
+    background-color: $white;
+    box-shadow: 3rem 3rem 13rem #0000001A, 0rem 3rem 7rem #FFFFFF1A;
+    border-radius: 1.6rem;
+
+    @include breakpoint($xs-bp) {
+      padding: 3rem 2rem;
+    }
+
+    &._hidden {
+      display: none;
+    }
+
+    &__title {
+      font-size: 3.4rem;
+      font-weight: 500;
+
+      @include breakpoint($xs-bp) {
+        font-size: 2.4rem;
+      }
+    }
+
+    &__form-container {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+
+      @include breakpoint($xs-bp) {
+        gap: 3.2rem;
+      }
+    }
+
+    .feedback-form {
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background-color: transparent;
+
+      &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+      }
+
+      &__sent {
+        padding: 0;
+      }
+
+      &__bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3rem;
+      }
+    }
+  }
+
+  &-result {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &:not(._active) {
+      display: none;
+    }
+
+    &__title {
+      font-size: 3.4rem;
+      font-weight: 500;
+
+      @include breakpoint($xs-bp) {
+        font-size: 2.4rem;
+      }
+    }
+
+    &__container {
+      padding: 3rem;
+      background-color: $white;
+      box-shadow: 3rem 3rem 13rem #0000001A, 0rem 3rem 7rem #FFFFFF1A;
+      border-radius: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      @include breakpoint($xs-bp) {
+        gap: 3.2rem;
+        padding: 3rem 2rem;
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      font-size: 2rem;
+      line-height: 1.4;
+      font-weight: 400;
+
+      @include breakpoint($xs-bp) {
+        font-size: 1.6rem;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+
+        &>span {
+          &:last-child {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    &__info {
+      padding: 3rem;
+      background-color: $white;
+      box-shadow: 3rem 3rem 13rem #0000001A, 0rem 3rem 7rem #FFFFFF1A;
+      border-radius: 1.6rem;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: $error;
+
+      @include breakpoint($xs-bp) {
+        padding: 3rem 2rem;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

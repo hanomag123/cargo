@@ -1,10 +1,19 @@
 .select {
   position: relative;
   z-index: 1;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  gap: 0.4rem;
+
+  &:not(._dropped) {
+    .select__drop {
+      grid-template-rows: 0fr;
+      opacity: 0;
+      pointer-events: none;
+      padding-top: 0;
+      padding-bottom: 0rem;
+    }
+  }
 
   &._dropped {
     z-index: 2;
@@ -12,6 +21,9 @@
     .select {
 
       &__btn {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
         &-icon {
           svg {
             scale: 1 -1;
@@ -19,7 +31,7 @@
         }
       }
 
-      &__container {
+      &__drop {
         grid-template-rows: 1fr;
         opacity: 1;
         pointer-events: all;
@@ -36,26 +48,44 @@
     }
   }
 
+  &__label {
+    font-size: 1.4rem;
+    line-height: 1.28;
+    font-weight: 400;
+    color: $G2;
+    padding-left: 2rem;
+  }
+
   &__btn {
     width: 100%;
-    padding: 2rem 0rem 0.8rem;
-    border-bottom: 0.1rem solid #15262F;
+    min-height: 6.8rem;
+    padding: 1.8rem 2.4rem;
+    border: 0.1rem solid $G3;
+    background-color: $backgroud;
+    transition: .3s;
+    font-size: 2rem;
+    line-height: 1.4;
+    font-weight: 400;
+    color: $G1;
+    border-radius: 1.2rem;
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    font-family: $f-urbanist;
-    font-weight: 400;
-    font-size: 3.2rem;
-    line-height: 1;
-    color: $primary;
+    justify-content: space-between;
     text-align: left;
 
     @include breakpoint($xs-bp) {
-      font-size: 2rem;
+      min-height: 4.9rem;
+      padding: 1.4rem 2.4rem;
+      font-size: 1.6rem;
+    }
+
+    &._placeholder {
+      color: $G2;
     }
 
     &-text {
       flex: 1;
+      @include lineClamp(1);
     }
 
     &-icon {
@@ -72,24 +102,31 @@
   }
 
   &__container {
-    position: absolute;
-    top: calc(100% + 0.4rem);
-    left: 0;
-    width: 100%;
-    max-height: 16rem;
-    overflow: auto;
-    display: grid;
-    grid-template-rows: 0fr;
-    opacity: 0;
-    pointer-events: none;
-    transition: .3s;
-    @include scrollbar(0.4rem, $primary, $primary-inverse-hover);
-    padding: 1.2rem;
-    background-color: $primary-inverse;
-    box-shadow: 0 0 0.4rem 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
-  &__inner {
+  &__drop {
+    overflow: auto;
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: .3s;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 24rem;
+    padding: 2rem 2.5rem;
+    border: 0.1rem solid $G3;
+    border-top: none;
+    border-radius: 0 0 1.6rem 1.6rem;
+    background-color: $backgroud;
+    transition: .3s;
+  }
+
+  &__content {
     min-height: 0;
     display: flex;
     flex-direction: column;
@@ -98,22 +135,48 @@
   }
 
   &-item {
-    font-size: 1.6rem;
-    font-weight: 600;
-    padding: 0.8rem 0rem;
+    font-size: 2rem;
+    line-height: 1.4;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
     cursor: pointer;
-    transition: .3s;
 
     @include breakpoint($xs-bp) {
-      font-size: 1.4rem;
-    }
-
-    @include hover {
-      color: $primary-sta;
+      font-size: 1.6rem;
     }
 
     &._selected {
-      padding-left: 1.2rem;
+      .select-item__icon {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__icon {
+      flex: none;
+      width: 2.4rem;
+      height: 2.4rem;
+      border: 0.15rem solid $stroke;
+      background-color: $backgroud;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .3s;
+
+      &::after {
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: $G1;
+        opacity: 0;
+        transition: .3s;
+      }
     }
   }
 }

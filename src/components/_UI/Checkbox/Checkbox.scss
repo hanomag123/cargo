@@ -2,13 +2,13 @@
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
-  font-size: 1.4rem;
+  font-size: 2rem;
+  line-height: 1.4;
   font-weight: 400;
-  color: $G2;
   cursor: pointer;
 
   @include breakpoint($xs-bp) {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
 
   &.invalid {
@@ -58,12 +58,15 @@
   }
 
   a {
-    color: $G1;
     text-decoration: underline;
     transition: .3s;
 
     @include hover {
       color: $primary;
+
+      @include hover {
+        color: $primary;
+      }
     }
   }
 }

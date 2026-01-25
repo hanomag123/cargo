@@ -1,0 +1,257 @@
+---
+import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+import Select from "@components/_UI/Select/Select.astro";
+import TextInput from "@components/_UI/TextInput/TextInput.astro";
+import Radio from "@components/_UI/Radio/Radio.astro";
+import Checkbox from "@components/_UI/Checkbox/Checkbox.astro";
+import { Sprite } from "astro-icon";
+---
+
+<section class="calc">
+  <div class="container calc__wrapper">
+    <h1 class="page-title calc__title">Рассчитать стоимость</h1>
+    <div class="calc__container">
+      <form action="#" class="calc-form" data-action="form-submit">
+        <div class="calc-form__box">
+          <h4 class="calc-form__box-title">Введите город и дату</h4>
+          <div class="calc-form__inputs">
+            <TextInput
+              className="fv"
+              label="Город отправления"
+              placeholder="Введите город"
+              required
+              data-action="required-text"
+            />
+            <TextInput
+              className="fv"
+              label="Город прибытия"
+              placeholder="Введите город"
+              required
+              data-action="required-text"
+            />
+            <TextInput
+              className="fv"
+              label="Дата отправки"
+              placeholder="ДД.ММ.ГГГГ"
+              type="date"
+              required
+              data-action="required-text"
+            />
+          </div>
+        </div>
+        <div class="calc-form__box">
+          <h4 class="calc-form__box-title">
+            Введите габариты и характер груза
+          </h4>
+          <div class="calc-form__inputs">
+            <TextInput
+              className="fv col-2"
+              label="Вес (кг)"
+              placeholder="0"
+              type="number"
+              required
+              data-action="required-number"
+            />
+            <TextInput
+              className="fv col-2"
+              label="Объём (м3)"
+              placeholder="0"
+              type="number"
+              required
+              data-action="required-number"
+            />
+            <Select
+              label="Характер груза"
+              placeholder="Сделайте выбор"
+              className="fv col-5"
+              data-select
+              data-close
+            >
+              <label class="text-btn select-item" data-item>
+                <input
+                  hidden
+                  type="radio"
+                  name="1"
+                  value="1"
+                  required
+                  data-action="required-radiobutton"
+                />
+                <span class="select-item__text" data-text>
+                  Характер груза 1
+                </span>
+                <span class="select-item__icon"></span>
+              </label>
+              <label class="text-btn select-item" data-item>
+                <input
+                  hidden
+                  type="radio"
+                  name="1"
+                  value="2"
+                  required
+                  data-action="required-radiobutton"
+                />
+                <span class="select-item__text" data-text>
+                  Характер груза 2
+                </span>
+                <span class="select-item__icon"></span>
+              </label>
+              <label class="text-btn select-item" data-item>
+                <input
+                  hidden
+                  type="radio"
+                  name="1"
+                  value="3"
+                  required
+                  data-action="required-radiobutton"
+                />
+                <span class="select-item__text" data-text>
+                  Характер груза 3
+                </span>
+                <span class="select-item__icon"></span>
+              </label>
+            </Select>
+          </div>
+        </div>
+        <div class="calc-form__box">
+          <h4 class="calc-form__box-title">
+            Введите габариты и характер груза
+          </h4>
+          <div class="calc-form__row">
+            <Radio
+              className="fv"
+              name="2"
+              value="1"
+              required
+              data-action="required-radiobutton"
+            >
+              Авиа
+            </Radio>
+            <Radio
+              className="fv"
+              name="2"
+              value="2"
+              required
+              data-action="required-radiobutton"
+            >
+              Авто
+            </Radio>
+            <Radio
+              className="fv"
+              name="2"
+              value="3"
+              required
+              data-action="required-radiobutton"
+            >
+              Не знаю
+            </Radio>
+          </div>
+        </div>
+        <div class="calc-form__box">
+          <h4 class="calc-form__box-title">Выберите услуги</h4>
+          <div class="calc-form__row">
+            <Checkbox className="fv">Отдельная машина</Checkbox>
+            <Checkbox className="fv">Забрать от двери отправителя</Checkbox>
+            <Checkbox className="fv">Доставить до двери получателя</Checkbox>
+          </div>
+        </div>
+        <DefaultBtn type="submit">
+          Рассчитать
+          <Sprite name="arrow-up-right" />
+        </DefaultBtn>
+      </form>
+
+      <div class="calc-callback _hidden">
+        <form action="#" class="feedback-form _sent1" data-action="form-submit">
+          <div class="feedback-form__sent">
+            <h3 class="block-title feedback__title">Спасибо за заявку!</h3>
+            <p class="feedback__subtitle">
+              Мы свяжемся с вами в ближайшее время.
+            </p>
+          </div>
+          <div class="feedback-form__container">
+            <h4 class="calc-callback__title">
+              Не хотите считать? Оставьте заявку, и мы всё сделаем за Вас
+            </h4>
+            <div class="calc-callback__form-container">
+              <div class="feedback-form__inputs">
+                <TextInput
+                  label="Введите ваше имя"
+                  placeholder="Имя"
+                  required
+                  className="fv"
+                  data-action="required-text"
+                />
+                <TextInput
+                  label="Введите номер телефона"
+                  placeholder="+7 (999) 999-99-99"
+                  required
+                  className="fv"
+                  data-action="required-text"
+                  data-mast="+7 (999) 999-99-99"
+                  data-mask-init
+                />
+                <TextInput textarea label="Текст запроса" placeholder="Текст" />
+              </div>
+              <div class="feedback-form__bottom">
+                <Checkbox
+                  className="fv"
+                  required
+                  data-action="required-checkbox"
+                >
+                  Я согласен с обработкой моих персональных данных, согласно
+                  правилам
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                    >политики конфиденциальности</a
+                  > данной платформы
+                </Checkbox>
+                <DefaultBtn type="submit" class="feedback-form__btn">
+                  Оставить заявку
+                  <Sprite name="arrow-up-right" />
+                </DefaultBtn>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="calc-result _active">
+        <div class="calc-result__container">
+          <h3 class="calc-result__title">Результат расчета:</h3>
+          <ul class="calc-result__list">
+            <li>
+              <span>Сроки:</span>
+              <span>3-5 дней</span>
+            </li>
+            <li>
+              <span>Цена:</span>
+              <span>1.050 евро</span>
+            </li>
+          </ul>
+          <form action="#" class="calc-result__form" data-action="form-submit">
+            <TextInput
+              label="Введите номер телефона"
+              placeholder="+7 (___) ___-__-__"
+              required
+              className="fv"
+              data-mast="+7 (999) 999-99-99"
+              data-mask-init
+              data-action="required-text"
+            />
+            <DefaultBtn
+              type="submit"
+              class="calc-result__btn"
+              color="secondary"
+            >
+              Оставить заявку
+              <Sprite name="arrow-up-right" />
+            </DefaultBtn>
+          </form>
+        </div>
+        <p class="calc-result__info">
+          Тарифы на сайте имеют информационный характер и не являются публичной
+          офертой согласно статье 437 пункту 2 ГК РФ.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

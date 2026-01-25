@@ -1,25 +1,16 @@
 ---
-import { Sprite } from "astro-icon";
-
 interface Props extends astroHTML.JSX.InputHTMLAttributes {
   className?: string;
-  color?: "white";
-  containerProps?: {
-    [key: string]: string;
-  };
+  color?: null;
 }
 
-const { className, color, containerProps = {}, ...props } = Astro.props;
+const { className, color, ...props } = Astro.props;
 ---
 
-<label
-  class="checkbox radio"
-  class:list={[{ ["checkbox_" + color]: color }, className]}
-  {...containerProps}
->
-  <input type="radio" class="checkbox__input" hidden {...props} />
-  <span class="checkbox__icon"> </span>
-  <span class="checkbox__text">
+<label class="radio" class:list={[{ ["radio_" + color]: color }, className]}>
+  <input type="radio" class="radio__input" hidden {...props} />
+  <span class="radio__icon"></span>
+  <span class="radio__text">
     <slot />
   </span>
 </label>

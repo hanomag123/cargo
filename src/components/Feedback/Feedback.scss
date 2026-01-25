@@ -167,5 +167,18 @@
         min-width: unset;
       }
     }
+
+    .checkbox {
+      font-size: 1.4rem;
+      color: $G2;
+
+      @include breakpoint($xs-bp) {
+        font-size: 1.2rem;
+      }
+
+      a {
+        color: $G1;
+      }
+    }
   }
 }

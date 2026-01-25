@@ -1,0 +1,14 @@
+---
+import Calc from "@components/_pageCalc/Calc/Calc.astro";
+import Breadcrumbs from "@components/_UI/Breadcrumbs/Breadcrumbs.astro";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout title="Рассчёт стоимости">
+  <div class="breadcrumbs-container">
+    <div class="container">
+      <Breadcrumbs items={["Главная", "Рассчёт стоимости"]} />
+    </div>
+  </div>
+  <Calc />
+</Layout>
