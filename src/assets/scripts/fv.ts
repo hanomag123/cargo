@@ -1,25 +1,25 @@
 import Inputmask from "inputmask";
 
-export const formValidateInit = (wrapperSelector: string) => {
-  const DATA_ACTION = "data-action";
-  const validClass = "valid";
-  const invalidClass = "invalid";
-  const dataMaskSelector = "[data-mask-init]";
-  const requiredSelector = "[required]";
-  const inputTextAction = "required-text";
-  const inputNumberAction = "required-number";
-  const inputEmailAction = "required-email";
-  const emailInputControlAction = "email-input-control";
-  const radiobuttonAction = "required-radiobutton";
-  const checkboxAction = "required-checkbox";
-  const selectAction = "required-select";
-  const fileAction = "input-file";
-  const fileMultipleAction = "input-file-multiple";
-  const inputPasswordAction = "input-password";
-  const numInset = "num-inset";
-  const formSubmit = "form-submit";
-  const submitMessage = "submit-message";
+const DATA_ACTION = "data-action";
+const validClass = "valid";
+const invalidClass = "invalid";
+const dataMaskSelector = "[data-mask-init]";
+const requiredSelector = "[required]";
+const inputTextAction = "required-text";
+const inputNumberAction = "required-number";
+const inputEmailAction = "required-email";
+const emailInputControlAction = "email-input-control";
+const radiobuttonAction = "required-radiobutton";
+const checkboxAction = "required-checkbox";
+const selectAction = "required-select";
+const fileAction = "input-file";
+const fileMultipleAction = "input-file-multiple";
+const inputPasswordAction = "input-password";
+const numInset = "num-inset";
+const formSubmit = "form-submit";
+const submitMessage = "submit-message";
 
+export const formValidateInit = (wrapperSelector: string) => {
   const inputMaskInit = (node: HTMLInputElement) => {
     const nodeMask = node.dataset.mask || "";
     const nodePlaceholder = node.dataset.placeholder;
@@ -112,10 +112,10 @@ export const formValidateInit = (wrapperSelector: string) => {
     const nodeValue = node.value;
 
     nodeValue.length > 0 &&
-    (
-      nodeValue.match(/[a-z0-9]\@.+[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}/g) ||
-      []
-    ).length !== 1
+      (
+        nodeValue.match(/[a-z0-9]\@.+[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}/g) ||
+        []
+      ).length !== 1
       ? node.setCustomValidity("Заполните это поле")
       : node.setCustomValidity("");
 
@@ -328,4 +328,8 @@ export const formValidateInit = (wrapperSelector: string) => {
       }
     }
   });
+
+  return {
+    checkNodeValidity
+  }
 };

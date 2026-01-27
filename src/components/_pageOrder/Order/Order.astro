@@ -1,0 +1,623 @@
+---
+import Checkbox from "@components/_UI/Checkbox/Checkbox.astro";
+import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+import Radio from "@components/_UI/Radio/Radio.astro";
+import Select from "@components/_UI/Select/Select.astro";
+import TextInput from "@components/_UI/TextInput/TextInput.astro";
+import { Sprite } from "astro-icon";
+---
+
+<form action="#" class="order" data-order data-order-stem-num="1">
+  <div class="order__wrapper">
+    <div class="swiper order-steps" data-order-swiper>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div
+            class="order-steps__item _order-step-active1"
+            data-order-step-btn="1"
+          >
+            <span class="order-steps__item-num">1</span>
+            <span class="order-steps__item-title">Направление и заказчик</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div
+            class="order-steps__item _order-step-active1"
+            data-order-step-btn="2"
+          >
+            <span class="order-steps__item-num">2</span>
+            <span class="order-steps__item-title">Отправитель</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div
+            class="order-steps__item _order-step-active1"
+            data-order-step-btn="3"
+          >
+            <span class="order-steps__item-num">3</span>
+            <span class="order-steps__item-title">Получатель</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div
+            class="order-steps__item _order-step-active1"
+            data-order-step-btn="4"
+          >
+            <span class="order-steps__item-num">4</span>
+            <span class="order-steps__item-title">Информация о грузe</span>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div
+            class="order-steps__item _order-step-active"
+            data-order-step-btn="5"
+          >
+            <span class="order-steps__item-num">5</span>
+            <span class="order-steps__item-title">Доп. сведения</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="order__container" data-order-step="1">
+      <div class="order__inner">
+        <div class="order__box">
+          <h4 class="order__subtitle">Выберите направление перевозки</h4>
+          <Select
+            label="Направление перевозки"
+            placeholder="Сделайте выбор"
+            className="order-validate"
+            data-select
+            data-close
+          >
+            <label class="text-btn select-item" data-item>
+              <input
+                hidden
+                type="radio"
+                name="1"
+                value="1"
+                required
+                data-action="required-radiobutton"
+              />
+              <span class="select-item__text" data-text
+                >Направление перевозки 1</span
+              >
+              <span class="select-item__icon"></span>
+            </label>
+            <label class="text-btn select-item" data-item>
+              <input
+                hidden
+                type="radio"
+                name="1"
+                value="2"
+                required
+                data-action="required-radiobutton"
+              />
+              <span class="select-item__text" data-text
+                >Направление перевозки 2</span
+              >
+              <span class="select-item__icon"></span>
+            </label>
+            <label class="text-btn select-item" data-item>
+              <input
+                hidden
+                type="radio"
+                name="1"
+                value="3"
+                required
+                data-action="required-radiobutton"
+              />
+              <span class="select-item__text" data-text
+                >Направление перевозки 3</span
+              >
+              <span class="select-item__icon"></span>
+            </label>
+          </Select>
+        </div>
+        <div class="order__box">
+          <h4 class="order__subtitle">Выберите заказчика перевозки</h4>
+          <div class="order__radio-group">
+            <Radio
+              className="order-validate"
+              name="delivery-customer"
+              value="1"
+              required
+              data-action="required-radiobutton"
+              data-radio-tab-trigger
+              checked
+            >
+              Юр. лицо
+            </Radio>
+            <Radio
+              className="order-validate"
+              name="delivery-customer"
+              value="2"
+              required
+              data-action="required-radiobutton"
+              data-radio-tab-trigger
+            >
+              Физ. лицо
+            </Radio>
+          </div>
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "delivery-customer",
+              ["data-radio-tab-value"]: "1",
+            }}
+            className="order-validate"
+            label="Наименование организации*"
+            placeholder="Наименование организации"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "delivery-customer",
+              ["data-radio-tab-value"]: "1",
+            }}
+            className="order-validate"
+            label="ИНН*"
+            placeholder="ИНН"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "delivery-customer",
+              ["data-radio-tab-value"]: "1",
+            }}
+            className="order-validate"
+            label="ФИО*"
+            placeholder="ФИО"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "delivery-customer",
+              ["data-radio-tab-value"]: "2",
+            }}
+            className="order-validate _radio-tab-hidden"
+            label="ФИО*"
+            placeholder="ФИО"
+            required
+            data-action="required-text"
+          />
+        </div>
+      </div>
+      <div class="order__inner">
+        <div class="order__box">
+          <h4 class="order__subtitle">Введите данные</h4>
+          <TextInput
+            className="order-validate"
+            label="Номер телефона*"
+            placeholder="+7 (___) ___-__-__"
+            required
+            data-action="required-text"
+            data-mask-init
+            data-mask="+7 (999) 999-99-99"
+          />
+          <TextInput
+            className="order-validate"
+            label="E-mail"
+            placeholder="user@gmail.com"
+            data-action="required-email"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="order__container" data-order-step="2">
+      <div class="order__inner">
+        <div class="order__box">
+          <h4 class="order__subtitle">Отправитель</h4>
+          <div class="order__radio-group">
+            <Radio
+              className="order-validate"
+              name="sender"
+              value="1"
+              required
+              data-action="required-radiobutton"
+              data-radio-tab-trigger
+              checked
+            >
+              Юр. лицо
+            </Radio>
+            <Radio
+              className="order-validate"
+              name="sender"
+              value="2"
+              required
+              data-action="required-radiobutton"
+              data-radio-tab-trigger
+            >
+              Физ. лицо
+            </Radio>
+          </div>
+          <TextInput
+            className="order-validate"
+            label="Город отправителя груза*"
+            placeholder="Город"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            className="order-validate"
+            label="Дата отправки груза*"
+            placeholder="ДД.ММ.ГГГГ"
+            type="date"
+            required
+            data-action="required-text"
+          />
+          <Checkbox name="take-from-door" value="1" data-radio-tab-trigger>
+            Забрать от двери отправителя
+          </Checkbox>
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "take-from-door",
+              ["data-radio-tab-value"]: "1",
+            }}
+            className="order-validate"
+            label="Адерс отправления груза*"
+            placeholder="Введите адрес отправления груза"
+            required
+            data-action="required-text"
+          />
+        </div>
+      </div>
+      <div class="order__inner">
+        <div class="order__box">
+          <h4 class="order__subtitle">Введите данные</h4>
+          <TextInput
+            className="order-validate"
+            label="Номер телефона*"
+            placeholder="+7 (___) ___-__-__"
+            required
+            data-action="required-text"
+            data-mask-init
+            data-mask="+7 (999) 999-99-99"
+          />
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "sender",
+              ["data-radio-tab-value"]: "1",
+            }}
+            className="order-validate"
+            label="Наименование организации*"
+            placeholder="Наименование организации"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "sender",
+              ["data-radio-tab-value"]: "1",
+            }}
+            className="order-validate"
+            label="ИНН*"
+            placeholder="ИНН"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            className="order-validate"
+            label="ФИО*"
+            placeholder="ФИО"
+            required
+            data-action="required-text"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="order__container" data-order-step="3">
+      <div class="order__inner">
+        <div class="order__box">
+          <h4 class="order__subtitle">Получатель</h4>
+          <div class="order__radio-group">
+            <Radio
+              className="order-validate"
+              name="recipient"
+              value="1"
+              required
+              data-action="required-radiobutton"
+              data-radio-tab-trigger
+              checked
+            >
+              Юр. лицо
+            </Radio>
+            <Radio
+              className="order-validate"
+              name="recipient"
+              value="2"
+              required
+              data-action="required-radiobutton"
+              data-radio-tab-trigger
+            >
+              Физ. лицо
+            </Radio>
+          </div>
+          <TextInput
+            className="order-validate"
+            label="Город получения груза*"
+            placeholder="Город"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            className="order-validate"
+            label="Дата получения груза*"
+            placeholder="ДД.ММ.ГГГГ"
+            type="date"
+            required
+            data-action="required-text"
+          />
+          <Checkbox name="deliver-to-door" value="1" data-radio-tab-trigger>
+            Доставить до двери
+          </Checkbox>
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "deliver-to-door",
+              ["data-radio-tab-value"]: "1",
+            }}
+            className="order-validate"
+            label="Адерс получения груза*"
+            placeholder="Введите адрес получения груза"
+            required
+            data-action="required-text"
+          />
+        </div>
+      </div>
+      <div class="order__inner">
+        <div class="order__box">
+          <h4 class="order__subtitle">Введите данные</h4>
+          <TextInput
+            className="order-validate"
+            label="Номер телефона*"
+            placeholder="+7 (___) ___-__-__"
+            required
+            data-action="required-text"
+            data-mask-init
+            data-mask="+7 (999) 999-99-99"
+          />
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "recipient",
+              ["data-radio-tab-value"]: "1",
+            }}
+            className="order-validate"
+            label="Наименование организации*"
+            placeholder="Наименование организации"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "recipient",
+              ["data-radio-tab-value"]: "1",
+            }}
+            className="order-validate"
+            label="ИНН*"
+            placeholder="ИНН"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            className="order-validate"
+            label="ФИО*"
+            placeholder="ФИО"
+            required
+            data-action="required-text"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="order__container" data-order-step="4">
+      <div class="order__inner">
+        <div class="order__box">
+          <h4 class="order__subtitle">Информация о грузе</h4>
+          <TextInput
+            className="order-validate"
+            label="Характер груза*"
+            placeholder="Введите характер груза"
+            required
+            data-action="required-text"
+          />
+          <TextInput
+            className="order-validate"
+            label="Количество мест, шт.*"
+            placeholder="Введите количество мест"
+            type="number"
+            required
+            data-action="required-number"
+          />
+          <TextInput
+            className="order-validate"
+            label="Общий вес, кг.*"
+            placeholder="Введите общий вес"
+            type="number"
+            required
+            data-action="required-number"
+          />
+          <TextInput
+            className="order-validate"
+            label="Общий объём, куб. м.*"
+            placeholder="Введите общий объём"
+            type="number"
+            required
+            data-action="required-number"
+          />
+        </div>
+      </div>
+      <div class="order__inner">
+        <div class="order__box">
+          <h4 class="order__subtitle">Габариты наибольшего из мест</h4>
+          <TextInput
+            className="order-validate"
+            label="Длина, см.*"
+            placeholder="Введите длину"
+            type="number"
+            required
+            data-action="required-number"
+          />
+          <TextInput
+            className="order-validate"
+            label="Ширина, см.*"
+            placeholder="Введите ширину"
+            type="number"
+            required
+            data-action="required-number"
+          />
+          <TextInput
+            className="order-validate"
+            label="Высота, см.*"
+            placeholder="Введите высоту"
+            type="number"
+            required
+            data-action="required-number"
+          />
+          <TextInput
+            className="order-validate"
+            label="Вес места, кг.*"
+            placeholder="Введите вес места"
+            type="number"
+            required
+            data-action="required-number"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="order__container" data-order-step="5">
+      <div class="order__inner">
+        <div class="order__box">
+          <h4 class="order__subtitle">Дополнительная информация</h4>
+          <div class="order__checks">
+            <span class="select__label">Перевозку оплачивает*</span>
+            <div class="order__radio-group">
+              <Radio
+                className="order-validate"
+                name="pays-for"
+                value="1"
+                required
+                data-action="required-radiobutton"
+              >
+                Заказчик
+              </Radio>
+              <Radio
+                className="order-validate"
+                name="pays-for"
+                value="2"
+                required
+                data-action="required-radiobutton"
+              >
+                Отправитель
+              </Radio>
+              <Radio
+                className="order-validate"
+                name="pays-for"
+                value="3"
+                required
+                data-action="required-radiobutton"
+              >
+                Получатель
+              </Radio>
+            </div>
+          </div>
+          <div class="order__checks">
+            <span class="select__label">Способ оплаты*</span>
+            <div class="order__radio-group">
+              <Radio
+                className="order-validate"
+                name="pays-for"
+                value="1"
+                required
+                data-action="required-radiobutton"
+              >
+                Наличный
+              </Radio>
+              <Radio
+                className="order-validate"
+                name="pays-for"
+                value="2"
+                required
+                data-action="required-radiobutton"
+              >
+                Безналичный
+              </Radio>
+            </div>
+          </div>
+          <Checkbox name="need-insurance" value="1" data-radio-tab-trigger>
+            Требуется страхование груза
+          </Checkbox>
+          <TextInput
+            containerProps={{
+              ["data-radio-tab-input"]: "need-insurance",
+              ["data-radio-tab-value"]: "1",
+            }}
+            className="order-validate"
+            label="Стоимость, руб.*"
+            placeholder="Введите стоимость"
+            required
+            data-action="required-text"
+          />
+        </div>
+      </div>
+      <div class="order__inner">
+        <div class="order__box order__final">
+          <TextInput
+            textarea
+            className="order-validate"
+            label="Дополнительная информация"
+            placeholder="Введите дополнительную информацию"
+          />
+          <Checkbox
+            className="order-validate"
+            required
+            data-action="required-checkbox"
+          >
+            Нажимая на кнопку "отправить" я даю согласие на обработку
+            персональных данных
+          </Checkbox>
+          <Checkbox
+            className="order-validate"
+            required
+            data-action="required-checkbox"
+          >
+            Точность и достоверность предоставленных сведений гарантируем. С
+            условиями и тарифами на перевозку знакомы. Обязуемся не отправлять
+            грузы, подлежащие обязательному декларированию, содержащие опасные и
+            наркотические вещества, а также предметы, принятие к Перевозке
+            которых запрещено Законами РФ. При сдаче груза, в исполнении ФЗ 374
+            от 06.07.16 обязуемся предоставить паспорт или доверенность от
+            организации на производимые действия, документы, содержащие
+            информацию о свойствах груза, об условиях его перевозки и иной
+            информации, необходимой для исполнения экспедитором обязанностей,
+            предусмотренных договором транспортной экспедиции.
+          </Checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="order__btns">
+      <DefaultBtn
+        type="button"
+        color="secondary"
+        class="order__btn"
+        data-order-prev-btn
+      >
+        Назад
+        <Sprite name="arrow-up-right" />
+      </DefaultBtn>
+      <DefaultBtn type="button" class="order__btn" data-order-next-btn>
+        Продолжить
+        <Sprite name="arrow-up-right" />
+      </DefaultBtn>
+      <DefaultBtn type="submit" class="order__btn" data-order-submit-btn>
+        Отправить заявку
+        <Sprite name="arrow-up-right" />
+      </DefaultBtn>
+    </div>
+  </div>
+</form>

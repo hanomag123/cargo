@@ -1,0 +1,20 @@
+---
+import Order from "@components/_pageOrder/Order/Order.astro";
+import Breadcrumbs from "@components/_UI/Breadcrumbs/Breadcrumbs.astro";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout title="Заявка на перевозку">
+  <div class="breadcrumbs-container">
+    <div class="container">
+      <Breadcrumbs items={["Главная", "Заявка на перевозку"]} />
+    </div>
+  </div>
+  <section class="calc">
+    <div class="container calc__wrapper">
+      <h1 class="page-title calc__title">Заявка на перевозку</h1>
+
+      <Order />
+    </div>
+  </section>
+</Layout>

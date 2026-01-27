@@ -10,8 +10,7 @@
   }
 
   &__label {
-    font-size: 1.4rem;
-    line-height: 1.28;
+    font-size: 1.8rem;
     font-weight: 400;
     color: $G2;
     padding-left: 2rem;
@@ -43,7 +42,9 @@
       padding: 1.4rem 2.4rem;
     }
 
-    &:disabled {}
+    &:disabled {
+      opacity: 0.6;
+    }
 
     &::placeholder {
       color: $G2;

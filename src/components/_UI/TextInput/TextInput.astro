@@ -4,9 +4,19 @@ interface Props extends astroHTML.JSX.InputHTMLAttributes {
   className?: string;
   textarea?: boolean;
   color?: null;
+  containerProps?: {
+    [key: string]: string;
+  };
 }
 
-const { label, className, textarea, color, ...rest } = Astro.props;
+const {
+  label,
+  className,
+  textarea,
+  color,
+  containerProps = {},
+  ...rest
+} = Astro.props;
 ---
 
 <label
@@ -16,6 +26,7 @@ const { label, className, textarea, color, ...rest } = Astro.props;
     { "text-input_textarea": textarea },
     className,
   ]}
+  {...containerProps}
 >
   {label && <span class="text-input__label">{label}</span>}
   <div class="text-input__container">
