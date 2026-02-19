@@ -12,6 +12,7 @@ import { initSectionsNav } from "./utils/sectionsNav";
 import { initAboutHistory } from "@components/_pageAbout/AboutHistory/AboutHistory";
 import { initSwipers } from "./utils/swiper";
 import { initOrder } from "@components/_pageOrder/Order/Order";
+import { initMainServNav } from "@components/_pageMain/MainServ/MainServ";
 
 Swiper.use([Navigation, Manipulation, Pagination, Thumbs, FreeMode]);
 
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMainBanner();
   initAboutHistory();
   initOrder();
+  initMainServNav();
   // <--
 
   // События

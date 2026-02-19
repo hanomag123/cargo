@@ -6,6 +6,21 @@
     padding: 4rem 0rem;
   }
 
+  &._visable {
+    .main-serv__nav {
+      .page-nav {
+        pointer-events: all;
+      }
+    }
+  }
+
+  &:not(._visable) {
+    .main-serv__nav {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
   &__bg {
     position: absolute;
     top: -8rem;
@@ -53,6 +68,33 @@
     @include breakpoint($xs-bp) {
       flex-direction: column;
       gap: 3.2rem;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 5rem;
+    height: 100%;
+    padding: 12rem 0rem;
+
+    @include breakpoint($xs-bp) {
+      right: 0;
+      width: 100%;
+      padding: 0;
+      transition: .5s;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      pointer-events: none;
+    }
+
+    .page-nav {
+      position: sticky;
+      top: 10rem;
+      right: 0rem;
+      translate: 0 0;
     }
   }
 

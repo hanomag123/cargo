@@ -1,6 +1,8 @@
 ---
 import Chip from "@components/_UI/Chip/Chip.astro";
 import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+import PageNav from "@components/PageNav/PageNav.astro";
+import { Sprite } from "astro-icon";
 ---
 
 <section class="main-serv" id="main-serv">
@@ -15,6 +17,55 @@ import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
       </picture>
     </div>
   </div>
+
+  <div class="main-serv__nav">
+    <PageNav>
+      <div
+        class="swiper"
+        data-swiper-init
+        data-props='{"slidesPerView": "auto", "centeredSlides": true, "freeMode": true}'
+      >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="#service-1" class="page-nav__btn" data-nav-link>
+              <Sprite name="truck" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#service-2" class="page-nav__btn" data-nav-link>
+              <Sprite name="plane" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#service-3" class="page-nav__btn" data-nav-link>
+              <Sprite name="globe-uk" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#service-4" class="page-nav__btn" data-nav-link>
+              <Sprite name="maybe" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#service-5" class="page-nav__btn" data-nav-link>
+              <Sprite name="truck-speed" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#service-6" class="page-nav__btn" data-nav-link>
+              <Sprite name="flag" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#service-7" class="page-nav__btn" data-nav-link>
+              <Sprite name="package" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </PageNav>
+  </div>
+
   <div class="container main-serv__container">
     <div class="main-serv__head">
       <Chip>Услуги</Chip>
@@ -24,7 +75,7 @@ import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
       </h3>
     </div>
     <div class="main-serv__list">
-      <div class="main-serv-card">
+      <div class="main-serv-card" id="service-1">
         <div class="main-serv-card__img">
           <img src="./img/main-serv-1.png" alt="" />
         </div>
@@ -39,7 +90,7 @@ import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
           Подробнее
         </DefaultBtn>
       </div>
-      <div class="main-serv-card">
+      <div class="main-serv-card" id="service-2">
         <div class="main-serv-card__img">
           <img src="./img/main-serv-2.png" alt="" />
         </div>
@@ -54,7 +105,7 @@ import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
           Подробнее
         </DefaultBtn>
       </div>
-      <div class="main-serv-card">
+      <div class="main-serv-card" id="service-3">
         <div class="main-serv-card__img">
           <img src="./img/main-serv-3.png" alt="" />
         </div>
@@ -69,7 +120,7 @@ import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
           Подробнее
         </DefaultBtn>
       </div>
-      <div class="main-serv-card">
+      <div class="main-serv-card" id="service-4">
         <div class="main-serv-card__img">
           <img src="./img/main-serv-4.png" alt="" />
         </div>
@@ -83,7 +134,7 @@ import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
           Подробнее
         </DefaultBtn>
       </div>
-      <div class="main-serv-card">
+      <div class="main-serv-card" id="service-5">
         <div class="main-serv-card__img">
           <img src="./img/main-serv-5.png" alt="" />
         </div>
@@ -97,7 +148,7 @@ import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
           Подробнее
         </DefaultBtn>
       </div>
-      <div class="main-serv-card">
+      <div class="main-serv-card" id="service-6">
         <div class="main-serv-card__img">
           <img src="./img/main-serv-6.png" alt="" />
         </div>
@@ -112,7 +163,7 @@ import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
           Подробнее
         </DefaultBtn>
       </div>
-      <div class="main-serv-card">
+      <div class="main-serv-card" id="service-7">
         <div class="main-serv-card__img">
           <img src="./img/main-serv-7.png" alt="" />
         </div>
