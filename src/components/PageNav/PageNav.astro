@@ -4,17 +4,63 @@ import { Sprite } from "astro-icon";
 
 <div class="page-nav" data-sections-nav data-sections-nav-scroll>
   <slot>
-    <a href="#main-banner" class="page-nav__btn" data-nav-link>
-      <Sprite name="home" />
-    </a>
-    <a href="#main-serv" class="page-nav__btn" data-nav-link>
-      <Sprite name="truck" />
-    </a>
-    <a href="#main-about" class="page-nav__btn" data-nav-link>
-      <Sprite name="users" />
-    </a>
-    <a href="#feedback" class="page-nav__btn" data-nav-link>
-      <Sprite name="call" />
-    </a>
+    <div
+      class="swiper"
+      data-swiper-init
+      data-props='{"slidesPerView": "auto", "centeredSlides": true, "freeMode": true}'
+    >
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href="#main-banner" class="page-nav__btn" data-nav-link>
+            <Sprite name="home" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-1" class="page-nav__btn" data-nav-link>
+            <Sprite name="truck" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-2" class="page-nav__btn" data-nav-link>
+            <Sprite name="plane" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-3" class="page-nav__btn" data-nav-link>
+            <Sprite name="globe-uk" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-4" class="page-nav__btn" data-nav-link>
+            <Sprite name="maybe" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-5" class="page-nav__btn" data-nav-link>
+            <Sprite name="truck-speed" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-6" class="page-nav__btn" data-nav-link>
+            <Sprite name="flag" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#service-7" class="page-nav__btn" data-nav-link>
+            <Sprite name="package" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#main-about" class="page-nav__btn" data-nav-link>
+            <Sprite name="users" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#feedback" class="page-nav__btn" data-nav-link>
+            <Sprite name="call" />
+          </a>
+        </div>
+      </div>
+    </div>
   </slot>
 </div>
