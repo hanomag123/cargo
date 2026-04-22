@@ -1,5 +1,6 @@
+import { Swiper as swiperInit } from "swiper";
+import { HashNavigation, Mousewheel } from "swiper/modules";
 import type { Swiper } from "swiper/types";
-import { clamp } from "./services";
 
 interface INavItem {
   link: HTMLElement;
@@ -13,6 +14,9 @@ class SectionsNav {
   swiper: Swiper | null = null;
 
   constructor(public wrapper: HTMLElement) {
+    if (window.innerWidth > 1024) {
+      return;
+    }
     this.offset = this.wrapper.dataset.offset
       ? parseInt(this.wrapper.dataset.offset)
       : 0;
@@ -24,7 +28,11 @@ class SectionsNav {
         const href = link.getAttribute("href");
         const id = href && href.split("#").join("");
         const block =
-          href && id && document.querySelector<HTMLElement>(href);
+          href &&
+          id &&
+          document.querySelector<HTMLElement>(
+            `[data-hash="${href.replace("#", "")}"]`,
+          );
 
         if (block) {
           this.items.set(id, {
@@ -44,6 +52,17 @@ class SectionsNav {
     }
 
     const swiperContainer = this.wrapper.querySelector<HTMLElement>(".swiper");
+
+    if (!swiperContainer) {
+      return;
+    }
+
+    new swiperInit(swiperContainer, {
+      slidesPerView: "auto",
+      centeredSlides: true,
+      freeMode: true,
+    });
+
     if (swiperContainer && (swiperContainer as any).swiper) {
       this.swiper = (swiperContainer as any).swiper as Swiper;
     }
@@ -157,4 +176,69 @@ export function initSectionsNav() {
     .forEach((container) => {
       new SectionsNav(container);
     });
+  const fullpageSwiper =
+    document.querySelector<HTMLElement>(".fullpage-swiper");
+  if (!fullpageSwiper) {
+    return;
+  }
+
+  let swiperInstance: null | swiperInit = null;
+
+  function initSwiper() {
+    if (window.innerWidth >= 768 && !swiperInstance && fullpageSwiper) {
+      swiperInstance = new swiperInit(fullpageSwiper, {
+        modules: [Mousewheel, HashNavigation],
+        direction: "vertical",
+        slidesPerView: 1,
+        mousewheel: true,
+        speed: 1000,
+        hashNavigation: {
+          replaceState: true,
+          watchState: true,
+        },
+        on: {
+          init: function (swiper) {
+            updateActiveLink(swiper);
+          },
+          slideChange: function (swiper) {
+            updateActiveLink(swiper);
+          },
+        },
+      });
+    } else if (window.innerWidth < 768 && swiperInstance) {
+      swiperInstance.destroy(true, true);
+      swiperInstance = null;
+    }
+  }
+
+  // Initial check
+  initSwiper();
+
+  // Listen for resize events
+  window.addEventListener("resize", () => {
+    initSwiper();
+  });
+
+  function updateActiveLink(swiper: swiperInit) {
+    // Or get from active slide's data-hash
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    const activeHash = activeSlide.getAttribute("data-hash");
+
+    // Remove active class from all elements with href="#special"
+    const links = document.querySelectorAll(
+      `.fullpage-nav a[href="#${activeHash}"]`,
+    );
+    if (activeHash) {
+      document.documentElement.dataset.currentpage = activeHash;
+    }
+    const oldlinks = document.querySelectorAll(".fullpage-nav a");
+    if (oldlinks.length) {
+      oldlinks.forEach((el) => el.classList.remove("_active"));
+    }
+    if (links.length) {
+      links.forEach((link) => {
+        link.classList.add("_active");
+      });
+    }
+  }
 }

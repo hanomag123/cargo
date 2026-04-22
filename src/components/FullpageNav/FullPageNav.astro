@@ -1,0 +1,62 @@
+---
+import { Sprite } from "astro-icon";
+---
+
+<div class="fullpage-nav" data-sections-nav data-sections-nav-scroll>
+  <slot>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href="#home" class="page-nav__btn" data-nav-link>
+            <Sprite name="home" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#avto" class="page-nav__btn" data-nav-link>
+            <Sprite name="truck" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#delivery" class="page-nav__btn" data-nav-link>
+            <Sprite name="plane" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#express" class="page-nav__btn" data-nav-link>
+            <Sprite name="globe-uk" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#special" class="page-nav__btn" data-nav-link>
+            <Sprite name="maybe" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#international" class="page-nav__btn" data-nav-link>
+            <Sprite name="truck-speed" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#custom" class="page-nav__btn" data-nav-link>
+            <Sprite name="flag" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#storage" class="page-nav__btn" data-nav-link>
+            <Sprite name="package" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#contact" class="page-nav__btn" data-nav-link>
+            <Sprite name="users" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#call" class="page-nav__btn" data-nav-link>
+            <Sprite name="call" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </slot>
+</div>

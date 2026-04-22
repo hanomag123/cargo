@@ -4,13 +4,425 @@ import MainBanner from "@components/_pageMain/MainBanner/MainBanner.astro";
 import MainServ from "@components/_pageMain/MainServ/MainServ.astro";
 import Feedback from "@components/Feedback/Feedback.astro";
 import PageNav from "@components/PageNav/PageNav.astro";
-import Layout from "src/layouts/Layout.astro";
+import FullPage from "src/layouts/FullPage.astro";
+import Header from "@components/Header/Header.astro";
+import Footer from "@components/Footer/Footer.astro";
+
+import Chip from "@components/_UI/Chip/Chip.astro";
+import DefaultBtn from "@components/_UI/DefaultBtn/DefaultBtn.astro";
+import PageNav from "@components/PageNav/PageNav.astro";
+import FullPageNav from "@components/FullpageNav/FullPageNav.astro";
+import { Sprite } from "astro-icon";
 ---
 
-<Layout title="Главная">
-  <PageNav />
-  <MainBanner />
-  <MainServ />
-  <MainAbout />
-  <Feedback />
-</Layout>
+<FullPage title="Главная">
+  <div class="main-serv__bg">
+    <div class="main-serv__bg-img">
+      <picture>
+        <source media="(max-width: 768px)" srcset="./img/main-serv-bg-mob.svg" />
+        <img src="./img/main-serv-bg.svg" alt="" />
+      </picture>
+    </div>
+  </div>
+
+  <div class="swiper fullpage-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" data-hash="home">
+        <Header />
+        <MainBanner />
+
+        <div class="container main-serv__container">
+          <div class="main-serv__head">
+            <Chip>Услуги</Chip>
+          </div>
+
+          <div class="main-serv__list"></div>
+        </div>
+      </div>
+
+
+      <div class="main-serv__page swiper-slide" data-hash="avto">
+        <div class="main-serv__left">
+          <div class="service-item__head">
+            <h3 class="service-item__title">
+              Автомобильне перевозки <svg astro-icon="chevron-right-bold">
+
+                <use xlink:href="#astroicon:chevron-right-bold"></use>
+              </svg>
+            </h3>
+          </div>
+          <div class="template service-item__text">
+            <p>
+              Автомобильные перевозки по территории Российской Федерации имеют
+              преимущества перед доставкой грузов водным, железнодорожным и
+              авиатранспортом: они полностью независимы от расписания работы
+              портов, вокзалов и аэропортов. Достаточно удобная и развитая
+              сеть автомобильных дорог дает возможность быстро и качественно
+              осуществлять все виды автомобильных грузоперевозок внутри
+              страны.
+            </p>
+            <p>
+              Эти факторы являются основополагающими в динамичном развитии и
+              возрастающей популярности автомобильных грузоперевозок по
+              территории РФ, не зависимо от отдаленности начального и
+              конечного пунктов назначения.
+            </p>
+          </div>
+        </div>
+        <div class="main-serv-card" id="service-1">
+          <div class="main-serv-card__img">
+            <img src="./img/main-serv-1.png" alt="" />
+          </div>
+          <div class="main-serv-card__inner">
+            <h5 class="main-serv-card__title">Автомобильные грузоперевозки</h5>
+            <p class="main-serv-card__text">
+              Быстрая и гибкая доставка грузов любого объёма и вида по всей России
+              с контролем на каждом этапе.
+            </p>
+          </div>
+          <DefaultBtn component="a" href="./services-page.html#service-1" color="secondary">
+            Подробнее
+          </DefaultBtn>
+        </div>
+      </div>
+      <div class="main-serv__page swiper-slide" data-hash="delivery">
+        <div class="main-serv__left">
+          <div class="service-item__head">
+            <h3 class="service-item__title">
+              Отправить груз <svg astro-icon="chevron-right-bold">
+
+                <use xlink:href="#astroicon:chevron-right-bold"></use>
+              </svg>
+            </h3>
+          </div>
+          <div class="template service-item__text">
+            <p>
+              Доставка грузов всех категорий по территории России
+              осуществляется всеми видами транспортных средств. И каждый вид
+              имеет преимущества и недостатки. Среди всех видов грузоперевозок
+              авиадоставка груза/товара занимает особую нишу, которая
+              находится вне конкуренции.
+            </p>
+            <p>
+              Авиаперевозки грузов по территории РФ имеют ряд неоспоримых
+              преимуществ:
+            </p>
+            <ul>
+              <li>Оперативность</li>
+              <li>Регулярность и соблюдение сроков доставки</li>
+              <li>Доступная стоимость</li>
+              <li>Доставка сборных грузов</li>
+              <li>
+                Возможность быстрой доставки скоропортящихся грузов и
+                специальных грузов.
+              </li>
+            </ul>
+            <p>
+              Для определенных категорий грузов доставка воздушным транспортом
+              является единственной возможностью в целости и сохранности, без
+              нарушения параметров качество транспортировать партию
+              товара/груза в отдаленные населенные пункты РФ.
+            </p>
+          </div>
+        </div>
+        <div class="main-serv-card" id="service-2">
+          <div class="main-serv-card__img">
+            <img src="./img/main-serv-2.png" alt="" />
+          </div>
+          <div class="main-serv-card__inner">
+            <h5 class="main-serv-card__title">Авиаперевозки грузов</h5>
+            <p class="main-serv-card__text">
+              Срочная доставка грузов в любые регионы России и за рубеж
+              с максимальной скоростью и безопасностью.
+            </p>
+          </div>
+          <DefaultBtn component="a" href="./services-page.html#service-2" color="secondary">
+            Подробнее
+          </DefaultBtn>
+        </div>
+      </div>
+      <div class="main-serv__page swiper-slide" data-hash="express">
+        <div class="main-serv__left">
+          <div class="service-item__head">
+            <h3 class="service-item__title">Экспресс доставка МСК-СПб-МСК</h3>
+          </div>
+          <div class="template service-item__text">
+            <p>
+              Экспресс-доставка Москва — Санкт-Петербург — Москва — это
+              быстрое и надежное решение для отправки документов, посылок и
+              грузов между двумя столицами. Компания Cargo Express
+              обеспечивает доставку «от двери до двери» в кратчайшие сроки,
+              используя собственный транспорт и отлаженную логистическую
+              систему.
+            </p>
+            <p>
+              Мы гарантируем сохранность груза, точное соблюдение сроков и
+              удобное отслеживание отправлений. Все этапы перевозки полностью
+              контролируются нашими специалистами, а оформление документов
+              занимает минимум времени.
+            </p>
+            <p>В спектр услуг входит:</p>
+            <ul>
+              <li>экспресс-доставка документов, посылок и грузов;</li>
+              <li>забор и доставка «от двери до двери»;</li>
+              <li>оформление транспортных документов;</li>
+              <li>возможность страхования отправления;</li>
+              <li>индивидуальные условия для корпоративных клиентов.</li>
+            </ul>
+            <p>
+              Сотрудничая с Cargo Express, вы экономите время, получаете
+              высокий уровень сервиса и уверенность, что ваш груз прибудет
+              точно в срок.
+            </p>
+          </div>
+        </div>
+        <div class="main-serv-card" id="service-3">
+          <div class="main-serv-card__img">
+            <img src="./img/main-serv-3.png" alt="" />
+          </div>
+          <div class="main-serv-card__inner">
+            <h5 class="main-serv-card__title">Экспресс доставка МСК-СПб-МСК</h5>
+            <p class="main-serv-card__text">
+              Быстрая и надёжная доставка грузов между Москвой и Санкт-Петербургом
+              с гарантией сроков.
+            </p>
+          </div>
+          <DefaultBtn component="a" href="./services-page.html#service-3" color="secondary">
+            Подробнее
+          </DefaultBtn>
+        </div>
+      </div>
+      <div class="main-serv__page swiper-slide" data-hash="special">
+        <div class="main-serv__left">
+          <h3 class="service-item__title">
+            Особенные перевозки <svg astro-icon="chevron-right-bold">
+
+              <use xlink:href="#astroicon:chevron-right-bold"></use>
+            </svg>
+          </h3>
+          <div class="template service-item__text">
+            <p>
+              Компания Cargo-express имеют большой опыт в организации
+              чартерных программ и перевозке специфичных, крупногабаритных и
+              тяжеловесных грузов. Прямые агентские соглашения с российскими и
+              международными авиакомпаниями, позволяют нам организовывать
+              грузовые чартерные рейсы, отвечающие самым строгим требованиям
+              клиента.
+            </p>
+            <p>
+              Компания Cargo Express специализируется на авиаперевозках
+              домашних животных без сопровождения владельца. Отправка
+              осуществляется из Санкт-Петербурга на прямых пассажирских
+              рейсах, в специально оборудованных отсеках, исключающих
+              переохлаждение и травмы. Вам не нужно покупать билет или
+              оформлять перевозку в аэропорту — сотрудники компании
+              самостоятельно оформят все документы и обеспечат комфортную
+              отправку питомца.
+            </p>
+            <p>Для перевозки требуется:</p>
+            <ul>
+              <li>ветеринарное свидетельство;</li>
+              <li>ветеринарный паспорт;</li>
+              <li>клетка с вентиляцией и возможностью запирания;</li>
+              <li>абсорбирующий материал на дно клетки.</li>
+            </ul>
+            <p>
+              Кроме того, Cargo Express выполняет авиаперевозки опасных
+              грузов. Компания имеет все необходимые сертификаты и действует в
+              соответствии с международными правилами ИКАО и ИАТА. Опасные
+              грузы классифицируются на девять классов (от взрывчатых веществ
+              до радиоактивных и прочих опасных материалов), для которых
+              требуется специальная упаковка, маркировка и документация,
+              обеспечивающие безопасность транспортировки.
+            </p>
+          </div>
+        </div>
+        <div class="main-serv-card" id="service-4">
+          <div class="main-serv-card__img">
+            <img src="./img/main-serv-4.png" alt="" />
+          </div>
+          <div class="main-serv-card__inner">
+            <h5 class="main-serv-card__title">Особенные грузоперевозки</h5>
+            <p class="main-serv-card__text">
+              Доставка крупногабаритных и тяжеловесных грузов.
+            </p>
+          </div>
+          <DefaultBtn component="a" href="./services-page.html#service-4" color="secondary">
+            Подробнее
+          </DefaultBtn>
+        </div>
+      </div>
+      <div class="main-serv__page swiper-slide" data-hash="international">
+        <div class="main-serv__left">
+          <div class="service-item__head">
+            <h3 class="service-item__title">
+              Международные перевозки <svg astro-icon="chevron-right-bold">
+
+                <use xlink:href="#astroicon:chevron-right-bold"></use>
+              </svg>
+            </h3>
+          </div>
+          <div class="template service-item__text">
+            <p>
+              Международные грузоперевозки – это уже давно не роскошь, а
+              обыденный рабочий процесс деятельности многих российских
+              компаний. Международное сотрудничество со всеми странами мира
+              развивается стремительными темпами и с такой же стремительностью
+              возрастает спрос на качественные комплексные услуги в сфере
+              доставки и оформления грузов/товаров. Транснациональные компании
+              из разных уголков планеты предпочитают доверить доставку
+              опытному игроку рынка международных грузоперевозок.
+            </p>
+            <p>
+              Компания «CARGO-EXPRESS» имеет практический опыт в осуществлении
+              доставок разного уровня сложности. Когда необходимы
+              интернациональные перевозки из стран Европы, обеих Америк, Азии
+              у специалистов компании не возникает никаких сложностей в их
+              организации. К основным видам доставки, которые предлагают
+              специалист компании, относятся:
+            </p>
+            <ul>
+              <li>Авиаперевозки</li>
+              <li>Доставка морским видом транспорта</li>
+              <li>Железнодорожные перевозки</li>
+              <li>Автомобильная доставка.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="main-serv-card" id="service-5">
+          <div class="main-serv-card__img">
+            <img src="./img/main-serv-5.png" alt="" />
+          </div>
+          <div class="main-serv-card__inner">
+            <h5 class="main-serv-card__title">Международные перевозки</h5>
+            <p class="main-serv-card__text">
+              Быстрая и надёжная доставка грузов по всему миру с гарантией сроков.
+            </p>
+          </div>
+          <DefaultBtn component="a" href="./services-page.html#service-5" color="secondary">
+            Подробнее
+          </DefaultBtn>
+        </div>
+      </div>
+      <div class="main-serv__page swiper-slide" data-hash="custom">
+        <div class="main-serv__left">
+          <div class="service-item__head">
+            <h3 class="service-item__title">Таможенное оформление</h3>
+          </div>
+          <div class="template service-item__text">
+            <p>
+              Все товары при международной перевозке проходят таможенное
+              оформление, порядок которого зависит от вида транспорта,
+              номенклатуры товара и статуса декларанта. Компания
+              «Груз-экспресс» имеет большой опыт в проведении таможенных
+              процедур и помогает участникам ВЭД оперативно оформлять ввозимые
+              и вывозимые грузы. Благодаря электронному декларированию мы
+              ускоряем процесс оформления, обеспечивая клиентам быстрый и
+              качественный сервис.
+              <br>
+              Наша миссия — поддерживать развитие бизнеса, а также помогать
+              физическим лицам в декларировании личных вещей. Мы предлагаем
+              полный спектр услуг по таможенному оформлению импорта и экспорта
+              на Пулковском таможенном посту.
+            </p>
+            <p>Что входит:</p>
+            <ul>
+              <li>оформление под печатью таможенного брокера;</li>
+              <li>определение кода по ТНВЭД РФ;</li>
+              <li>оценку таможенной стоимости;</li>
+              <li>расчет и уплату пошлин и налогов;</li>
+              <li>подготовку внешнеторгового контракта;</li>
+              <li>представление клиента в таможенных органах РФ.</li>
+            </ul>
+            <p>
+              Работая с нами, вы получаете профессиональное сопровождение,
+              индивидуальный подход, защиту интересов и экономию времени и
+              средств.
+            </p>
+          </div>
+        </div>
+        <div class="main-serv-card" id="service-6">
+          <div class="main-serv-card__img">
+            <img src="./img/main-serv-6.png" alt="" />
+          </div>
+          <div class="main-serv-card__inner">
+            <h5 class="main-serv-card__title">Таможенное оформление</h5>
+            <p class="main-serv-card__text">
+              Быстрое и квалифицированное оформление всех необходимых документов
+              для международных перевозок.
+            </p>
+          </div>
+          <DefaultBtn component="a" href="./services-page.html#service-6" color="secondary">
+            Подробнее
+          </DefaultBtn>
+        </div>
+      </div>
+      <div class="main-serv__page swiper-slide" data-hash="storage">
+        <div class="main-serv__left">
+          <div class="service-item__head">
+            <h3 class="service-item__title">Склад и хранение</h3>
+          </div>
+          <div class="template service-item__text">
+            <p>
+              Компания Cargo Express предлагает услугу ответственного хранения
+              грузов на оборудованных складах в Москве и Санкт-Петербурге для
+              юридических и физических лиц.
+            </p>
+            <p>Это удобное и безопасное решение, если:</p>
+            <ul>
+              <li>отсутствует собственная площадь для хранения;</li>
+              <li>аренда или содержание склада нецелесообразны;</li>
+              <li>нет возможности обеспечить безопасность грузу;</li>
+              <li>хранение требуется временно или периодически.</li>
+            </ul>
+            <p>
+              Мы обеспечиваем обустроенные площади, современное оборудование,
+              механизмы для разгрузки и перемещения, а также квалифицированный
+              персонал. Cargo Express гарантирует минимальные тарифы, полную
+              сохранность грузов, соблюдение условий хранения и прозрачный
+              учет.
+            </p>
+            <p>
+              Размещение возможно на открытых площадках, под навесом или в
+              отапливаемых помещениях. Все склады находятся под круглосуточной
+              охраной и видеонаблюдением. Благодаря многолетнему опыту в
+              логистике, оперативной работе и удобному расположению у
+              транспортных развязок, Cargo Express обеспечивает надежное и
+              выгодное хранение грузов любого типа.
+            </p>
+          </div>
+        </div>
+        <div class="main-serv-card" id="service-7">
+          <div class="main-serv-card__img">
+            <img src="./img/main-serv-7.png" alt="" />
+          </div>
+          <div class="main-serv-card__inner">
+            <h5 class="main-serv-card__title">Склад и хранение</h5>
+            <p class="main-serv-card__text">
+              Надежные решения для хранения вашего груза с учетом всех требований
+              и условий.
+            </p>
+          </div>
+          <DefaultBtn component="a" href="./services-page.html#service-7" color="secondary">
+            Подробнее
+          </DefaultBtn>
+        </div>
+      </div>
+
+      <div class="main-serv__page swiper-slide" data-hash="contact">
+        <MainAbout />
+      </div>
+
+      <div class="swiper-slide" data-hash="call">
+        <Feedback />
+      </div>
+
+
+      <div class="swiper-slide footer-slide" data-hash="footer">
+        <Footer />
+      </div>
+    </div>
+  </div>
+
+  <FullPageNav />
+</FullPage>

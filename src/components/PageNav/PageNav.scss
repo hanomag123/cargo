@@ -1,3 +1,54 @@
+.fullpage-nav {
+  position: fixed;
+  top: 50%;
+  right: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  z-index: 500;
+  translate: 0 -50%;
+
+  @include breakpoint($xs-bp) {
+    flex-direction: row;
+    top: unset;
+    bottom: 2rem;
+    right: 0;
+    translate: 0 0;
+    width: 100%;
+  }
+
+  .swiper {
+    @include breakpoint($xs-bp) {
+      padding: 0rem 2.4rem;
+    }
+
+    .swiper-wrapper {
+      @media (min-width: 769px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        transform: none !important;
+      }
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      height: auto;
+
+      @include breakpoint($xs-bp) {
+        padding-right: 1rem;
+        width: 6.4rem;
+        height: 5.4rem;
+      }
+    }
+  }
+}
+
 .page-nav {
   position: fixed;
   top: 50%;
