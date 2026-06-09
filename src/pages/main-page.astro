@@ -40,12 +40,63 @@ import { Sprite } from "astro-icon";
         </div>
       </div>
 
+      <div class="main-serv__page swiper-slide" data-hash="delivery">
+        <div class="main-serv__left">
+          <div class="service-item__head">
+            <h3 class="service-item__title">
+              Грузоперевозки авиатранспортом <svg astro-icon="chevron-right-bold">
 
+                <use xlink:href="#astroicon:chevron-right-bold"></use>
+              </svg>
+            </h3>
+          </div>
+          <div class="template service-item__text">
+            <p>
+              Срочная доставка грузов в любые регионы практически из всех аэропортов страны
+            </p>
+            <ul>
+              <li>Оптимальные маршруты по России и миру</li>
+              <li>Более 30 лет надежного полета. Наши специалисты видели в логистике всё. Средний стаж — 15 лет</li>
+              <li>Не посредники. Прямые соглашения с авиакомпаниями. Тарифы из первых рук</li>
+              <li>Не роботы. Личный менеджер 24/7: живой эксперт, который знает о вашем грузе всё и всегда на связи</li>
+              <li>
+                Весь спектр сопутствующих услуг: подбор и доставка от и до двери. Подготовка, упаковка и маркировка для перелета по всем авиастандартам
+              </li>
+              <li>
+                Оформление: Бюрократию и страхование(при необходимости) берем на себя
+              </li>
+              <li>
+                Все категории грузов: <a href="./services-page.html#service-2">Подробнее </a>
+              </li>
+              <li>
+                Для экспедиторов и грузоотправителей: <br>
+                Для грузов из СПб и Москвы, в отсутствие места на рейсы в нужном направлении, существует опция оперативной переброски груза между двумя столицами в тот аэропорт, где место на ближайший рейс есть. Это возможно благодаря регулярному движению наших сборных грузовиков с экипажем из двух
+                водителей, «через ночь», без потери времени. <a href="./services-page.html#service-2">Подробнее </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="main-serv-card" id="service-2">
+          <div class="main-serv-card__img">
+            <img src="./img/main-serv-2.png" alt="" />
+          </div>
+          <div class="main-serv-card__inner">
+            <h5 class="main-serv-card__title">Авиаперевозки грузов</h5>
+            <p class="main-serv-card__text">
+              Срочная доставка грузов в любые регионы России и за рубеж
+              с максимальной скоростью и безопасностью.
+            </p>
+          </div>
+          <DefaultBtn component="a" href="./services-page.html#service-2" color="secondary">
+            Подробнее
+          </DefaultBtn>
+        </div>
+      </div>
       <div class="main-serv__page swiper-slide" data-hash="avto">
         <div class="main-serv__left">
           <div class="service-item__head">
             <h3 class="service-item__title">
-              Автомобильне перевозки <svg astro-icon="chevron-right-bold">
+              Автомобильные перевозки <svg astro-icon="chevron-right-bold">
 
                 <use xlink:href="#astroicon:chevron-right-bold"></use>
               </svg>
@@ -85,66 +136,10 @@ import { Sprite } from "astro-icon";
           </DefaultBtn>
         </div>
       </div>
-      <div class="main-serv__page swiper-slide" data-hash="delivery">
-        <div class="main-serv__left">
-          <div class="service-item__head">
-            <h3 class="service-item__title">
-              Отправить груз <svg astro-icon="chevron-right-bold">
-
-                <use xlink:href="#astroicon:chevron-right-bold"></use>
-              </svg>
-            </h3>
-          </div>
-          <div class="template service-item__text">
-            <p>
-              Доставка грузов всех категорий по территории России
-              осуществляется всеми видами транспортных средств. И каждый вид
-              имеет преимущества и недостатки. Среди всех видов грузоперевозок
-              авиадоставка груза/товара занимает особую нишу, которая
-              находится вне конкуренции.
-            </p>
-            <p>
-              Авиаперевозки грузов по территории РФ имеют ряд неоспоримых
-              преимуществ:
-            </p>
-            <ul>
-              <li>Оперативность</li>
-              <li>Регулярность и соблюдение сроков доставки</li>
-              <li>Доступная стоимость</li>
-              <li>Доставка сборных грузов</li>
-              <li>
-                Возможность быстрой доставки скоропортящихся грузов и
-                специальных грузов.
-              </li>
-            </ul>
-            <p>
-              Для определенных категорий грузов доставка воздушным транспортом
-              является единственной возможностью в целости и сохранности, без
-              нарушения параметров качество транспортировать партию
-              товара/груза в отдаленные населенные пункты РФ.
-            </p>
-          </div>
-        </div>
-        <div class="main-serv-card" id="service-2">
-          <div class="main-serv-card__img">
-            <img src="./img/main-serv-2.png" alt="" />
-          </div>
-          <div class="main-serv-card__inner">
-            <h5 class="main-serv-card__title">Авиаперевозки грузов</h5>
-            <p class="main-serv-card__text">
-              Срочная доставка грузов в любые регионы России и за рубеж
-              с максимальной скоростью и безопасностью.
-            </p>
-          </div>
-          <DefaultBtn component="a" href="./services-page.html#service-2" color="secondary">
-            Подробнее
-          </DefaultBtn>
-        </div>
-      </div>
       <div class="main-serv__page swiper-slide" data-hash="express">
         <div class="main-serv__left">
           <div class="service-item__head">
-            <h3 class="service-item__title">Экспресс доставка МСК-СПб-МСК</h3>
+            <h3 class="service-item__title">Москва и Санкт-Петербург</h3>
           </div>
           <div class="template service-item__text">
             <p>

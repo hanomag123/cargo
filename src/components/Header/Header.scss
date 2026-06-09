@@ -4,6 +4,7 @@
   left: 0;
   width: 100%;
   padding: 2rem 0rem;
+  z-index: 9999;
 
   @include breakpoint($xs-bp) {
     padding: 1.6rem 0rem;
