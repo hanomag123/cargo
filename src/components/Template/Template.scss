@@ -119,6 +119,7 @@
 
   a {
     text-decoration: underline;
+    text-decoration-skip-ink: none;
 
     &:hover {
       text-decoration: none;
