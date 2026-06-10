@@ -254,3 +254,10 @@
     }
   }
 }
+
+[data-hash="avto"],
+[data-hash="delivery"] {
+  .main-serv-card__img {
+    height: auto;
+  }
+}
