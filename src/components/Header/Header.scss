@@ -385,7 +385,24 @@
   }
 
   .header__logo {
-    display: none;
+    order: 1;
+  }
+
+  .header__order-btn {
+    order: 2;
+    min-width: 28.4rem;
+  }
+
+  .header__serv-btn {
+    min-width: 28.4rem;
+  }
+}
+
+.header__container {
+  .header__logo {
+    @include breakpoint($xs-bp) {
+      display: none;
+    }
   }
 }
 
