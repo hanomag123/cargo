@@ -8,7 +8,7 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
-    gap: 13.6rem;
+    gap: 4rem;
 
     @include breakpoint($xs-bp) {
       gap: 3.2rem;
@@ -56,7 +56,7 @@
   }
 
   &__text {
-    font-size: 3rem;
+    font-size: 1.8rem;
     font-weight: 500;
 
     @include breakpoint($xs-bp) {
