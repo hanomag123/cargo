@@ -222,7 +222,9 @@
 
   &__logo {
     width: 16.7rem;
-
+    border-radius: 2rem;
+    overflow: hidden;
+    background-color: #fff;
     @include breakpoint($xs-bp) {
       width: 11.2rem;
     }
